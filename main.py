@@ -105,7 +105,7 @@ def main():
         input_dir,
         original_file_path,
         replace_with_correction=is_running_on_git_clone,
-        verbose=False
+        verbose=True
     )
 
     markdown_editor.process_markdown()

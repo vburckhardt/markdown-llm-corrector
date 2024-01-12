@@ -1,13 +1,14 @@
 # Markdown LLM Corrector
 
-This tool processes markdown files, correcting errors and inconsistencies using Large Language Model (LLM).
+This tool leverages Large Language Model (LLM) model to correct markdown files. It can be utilized to correct a single file or a directory of files. If run on a GitHub repository, it can also create a pull request with the corrected files.
 
-While still being fine-tuned, the tool provides relatively 'usable' results, as seen in the samples section below.
+This alpha version is still being tuned, but it already provides relatively useful results, as seen in the samples section below.
 
-## LLM Model
+## LLM model
 
-The current version leverages the LLAMA 2-70B chat model through IBM WatsonX.
-The tool is built using [langchain](https://python.langchain.com/docs/get_started/introduction). The design based on langchain makes it easy to target other LLMs in the future.
+The current version leverages the LLAMA 2-70B chat model through [IBM WatsonX]([Large Language Model](https://www.ibm.com/watsonx)).
+
+The tool is built using [langchain](https://python.langchain.com/docs/get_started/introduction). The design based on langchain makes it easy to target other LLMs.
 
 ## Samples
 
@@ -71,16 +72,12 @@ python main.py --repo_org ORG_NAME --repo_name REPO_NAME
 * `--input_dir`: Provide a path to a directory containing markdown files.
 * `--working_dir`: Set a working directory for operations. Defaults to a randomly generated directory name.
 
-### Description
-
-This tool leverages IBM Watson's LLM model to correct markdown files. It can be utilized to correct a single file or a directory of files. If run on a GitHub repository, it can also create a pull request with the corrected files.
-
 ### Contributing
 
 Contributions are welcome! Please open a pull request with your proposed changes.
 
 ### License
 
-This project is licensed under the Apache 2 License.
+This project is licensed under the Apache License.
 
 
