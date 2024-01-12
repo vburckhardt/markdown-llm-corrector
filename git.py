@@ -36,7 +36,9 @@ class Git:
             "title": "Update markdown documents",
             "head": self.branch_name,
             "base": "main",
-            "body": "LLM assisted editing",
+            "body": """LLM-assisted editing.
+See (Markdown LLM Corrector)[https://github.com/vburckhardt/markdown-llm-corrector].
+Use the branch this PR is originating from as the base for further tweaks as needed.""",
         }
         response = requests.post(
             f"https://api.github.com/repos/{self.repo_owner}/{self.repo_name}/pulls",
