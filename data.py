@@ -4,8 +4,8 @@ examples = [
         "correction": "## Hello World!",
     },
     {
-        "text": "I enjoy using [mardown](https://example.com) for documenttion.",
-        "correction": "I enjoy using [markdown](https://example.com) for documentation.",
+        "text": "I enjoy using [mardown for documenttion](https://example.com).",
+        "correction": "I enjoy using [markdown for documentation](https://example.com).",
     },
     {
         "text": "* Bullet poitns are usefull",
@@ -59,18 +59,18 @@ examples = [
         "text": "My favorite thing about Markdown is it's simplicity and ease of use.",
         "correction": "What I appreciate most about Markdown is its simplicity and user-friendliness.",
     },
-    {
-        "text": "Tables are also useful\n| Header 1 | Header 2 |\n| -------- | -------- |\n| Row 1 | Row 2 |",
-        "correction": "Tables are also useful\n| Header 1 | Header 2 |\n| -------- | -------- |\n| Row 1    | Row 2    |",
-    },
+    # {
+    #     "text": "Tables are also useful\n| Header 1 | Header 2 |\n| -------- | -------- |\n| Row 1 | Row 2 |",
+    #     "correction": "Tables are also useful\n| Header 1 | Header 2 |\n| -------- | -------- |\n| Row 1    | Row 2    |",
+    # },
     {
         "text": "![Image without alt text](image.jpg)",
         "correction": "![Image without alt text](image.jpg)",
     },
-    {
-        "text": "```python\nprnt('Hello World!')\n```",
-        "correction": "```python\nprint('Hello World!')\n```",
-    },
+    # {
+    #     "text": "```python\nprnt('Hello World!')\n```",
+    #     "correction": "```python\nprint('Hello World!')\n```",
+    # },
     {
         "text": "Reference-style links are also valid: [Markdown][1]\n\n[1]: https://example.com",
         "correction": "Reference-style links are also valid: [Markdown][1]\n\n[1]: https://example.com",
@@ -88,8 +88,8 @@ examples = [
         "correction": "# IBM Module",
     },
     {
-        "text": "https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started",
-        "correction": "[IBM Cloud Satellite Getting Started](https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started)",
+        "text": "Example generating a markdown link: https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started. This is an existing markdown link [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model).",
+        "correction": "Example generating a markdown link: [IBM Cloud Satellite Getting Started](https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started). This is an existing markdown link [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model).",
     },
     {
         "text": "Creates and configures **1 HANA instance, 0 to N NetWeaver instances and 1 Optional ShareFS** with **RHEL or SLES OS** distribution.",
@@ -143,4 +143,44 @@ deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-slz-o
         "text": "- Data retention, [lifecycle](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-archive) and archiving options",
         "correction": "- Data retention, [lifecycle](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-archive), and archiving options.",
     },
+    {
+        "text": """- IBM Cloud VPC Infrastructure Services (IS) -> Cloud Object Storage (COS)
+- Virtual Private Cloud workload (eg: Kubernetes worker nodes) -> IBM Cloud Container Registry""",
+        "correction": """- IBM Cloud VPC Infrastructure Services (IS) -> Cloud Object Storage (COS)
+- Virtual Private Cloud workload (e.g., Kubernetes worker nodes) -> IBM Cloud Container Registry"""
+    },
+    {
+        "text": "[terraform-ibm-cbr](#terraform-ibm-cbr)",
+        "correction": "[terraform-ibm-cbr](#terraform-ibm-cbr)"
+    },
+    {
+        "text": """## Overview
+* [terraform-ibm-cbr](#terraform-ibm-cbr)
+* [Submodules](./modules)
+    * [cbr-rule-module](./modules/cbr-rule-module)
+    * [cbr-service-profile](./modules/cbr-service-profile)
+    * [cbr-zone-module](./modules/cbr-zone-module)
+    * [fscloud](./modules/fscloud)
+* [Examples](./examples)
+    * [CBR multi service profile](./examples/multi-service-profile)
+    * [Multi resource rule example](./examples/multi-resource-rule)
+    * [Multi-zone example](./examples/multizone-rule)
+    * [Pre-wired CBR configuration for FS Cloud example](./examples/fscloud)
+    * [Zone example](./examples/zone)
+* [Contributing](#contributing)""",
+        "correction": """## Overview
+* [terraform-ibm-cbr](#terraform-ibm-cbr)
+* [Submodules](./modules)
+    * [cbr-rule-module](./modules/cbr-rule-module)
+    * [cbr-service-profile](./modules/cbr-service-profile)
+    * [cbr-zone-module](./modules/cbr-zone-module)
+    * [fscloud](./modules/fscloud)
+* [Examples](./examples)
+    * [CBR multi service profile](./examples/multi-service-profile)
+    * [Multi resource rule example](./examples/multi-resource-rule)
+    * [Multi-zone example](./examples/multizone-rule)
+    * [Pre-wired CBR configuration for FS Cloud example](./examples/fscloud)
+    * [Zone example](./examples/zone)
+* [Contributing](#contributing)"""
+    }
 ]

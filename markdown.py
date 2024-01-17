@@ -30,7 +30,7 @@ class MarkdownEditor:
         self.verbose = verbose
         self.corrected_file_name_suffix = corrected_file_name_suffix
 
-    def process_markdown(self):
+    def __load_files(self):
         if self.original_file_path is not None:
             loader = TextLoader(self.original_file_path)
         else:
@@ -42,6 +42,11 @@ class MarkdownEditor:
             )
 
         data = loader.load()
+        return data
+
+    def process_markdown(self):
+        
+        data = self.__load_files()
 
         for doc in data:
             doc.page_content = self.__remove_code_tables_comments(doc.page_content)
