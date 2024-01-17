@@ -18,14 +18,14 @@ Three solutions are offered:
     - Extends the full-stack solution by creating a new Power Virtual Server workspace in a different zone and interconnects with the previous solution.
     - This solution is typically used for **High Availability scenarios** where a single management VPC can be used to reach both PowerVS workspaces.
 3. [PowerVS quickstart variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/quickstart)
-    - Creates 1 VPC and a Power Virtual Server workspace, interconnects them, and configures os network management services (SQUID proxy, NTP, NFS, and DNS services) using ansible galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
-    - Additionally creates a Power Virtual Server Instance of a selected t-shirt size.
+    - Creates 1 VPC and a Power Virtual Server workspace, interconnects them, and configures OS network management services (SQUID proxy, NTP, NFS, and DNS services) using Ansible Galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
+    - Additionally creates a Power Virtual Server instance of a selected t-shirt size.
     - This solution is typically used for **PoCs, demos, and quick onboarding** to PowerVS Infrastructure.
 4. [PowerVS import-workspace variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/import-workspace)
     - Takes information about an existing infrastructure and creates a schematics workspace.
     - The schematics workspace's ID and the outputs from it can be used to install the terraform solution 'Power Virtual Server for SAP HANA' on top of a pre-existing PowerVS infrastructure.
     - It creates the ACL and security group rules necessary for management services (NTP, NFS, DNS, and proxy server) and schematics engine access.
-    - This solution is typically used for converting an existing Power Virtual Server landscape to Schematics workspace.
+    - This solution is typically used for converting an existing Power Virtual Server landscape to a Schematics workspace.
 
 ## Reference Architectures
 - [PowerVS Full-Stack Variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/reference-architectures/full-stack/deploy-arch-ibm-pvs-inf-full-stack.md)
@@ -72,7 +72,7 @@ You need the following permissions to run this module.
 <!-- BEGIN CONTRIBUTING HOOK -->
 ## Contributing
 
-You can report issues and request features for this module in GitHub issues in the module repo. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
+You can report issues and request features for this module in GitHub issues in the module repository. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
 
 To set up your local development environment, see [Local Development Setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.
 <!-- END CONTRIBUTING HOOK -->

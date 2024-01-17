@@ -11,9 +11,9 @@ This module is a collection of submodules that make it easier to provision Satel
 
 ## Overview
 
-IBM Cloud Satellite enables consistent deployment and operation of applications across all on-premises, edge computing, and public cloud environments from various cloud providers. It harmonizes a fundamental set of Kubernetes, data, AI, and security services to be centrally administered as a service by IBM Cloud, offering comprehensive oversight across all environments via a unified interface. This leads to enhanced developer productivity and accelerated development pace.
+IBM Cloud Satellite helps you deploy and run applications consistently across all on-premises, edge computing, and public cloud environments from any cloud vendor. It standardizes a core set of Kubernetes, data, AI, and security services to be centrally managed as a service by IBM Cloud, with full visibility across all environments through a single pane of glass. The result is greater developer productivity and development velocity.
 
-<https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started>
+https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 
 ## Features
 
@@ -34,7 +34,7 @@ IBM Cloud Satellite enables consistent deployment and operation of applications 
 
 ## Compatibility
 
-This module is meant for use with Terraform 0.13 or later.
+This module is designed for use with Terraform 0.13 or later.
 
 ## Note
 
@@ -178,4 +178,4 @@ module "satellite-ibm" {
     terraform destroy -var-file=./input.tfvars`
     ```
 
-All optional parameters are set to null by default in the example's `variables.tf` file. If you want to configure an optional parameter, you can override the default value.
+All optional parameters are set to null by default in the example's `variables.tf` file. If you want to configure an optional parameter, override the default value.

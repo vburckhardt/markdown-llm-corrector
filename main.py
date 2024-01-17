@@ -61,7 +61,7 @@ def main():
     repo_name = args.repo_name
     working_dir = args.working_dir
 
-    is_running_on_git_clone = repo_name != None
+    is_running_on_git_clone = repo_name is not None
 
     apikey = Utils.get_env_variable(
         "IBM_CLOUD_API_KEY", "Please enter your WML api key (hit enter): "

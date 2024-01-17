@@ -37,7 +37,7 @@ class MarkdownEditor:
             loader = DirectoryLoader(
                 self.input_dir,
                 glob="**/*.md",
-                show_progress=True,
+                show_progress=False,
                 loader_cls=TextLoader,
             )
 
@@ -79,7 +79,7 @@ class MarkdownEditor:
                     logging.info("'%s' not found in the document.", original_stripped)
 
             if self.replace_with_correction:
-                new_file_path = original_file_path  # Override file in git mode
+                new_file_path = original_file_path  # Override file content in git mode
             else:
                 new_file_path = (
                     original_file_path.rsplit(".", 1)[0]
@@ -96,8 +96,11 @@ class MarkdownEditor:
             input_variables=["text", "correction"],
             template=textwrap.dedent(
                 """\
-            Text:{text}</endoftext>
-            Correction:{correction}</end>"""
+                [[[Text]]]
+                {text}
+
+                [[[Correction]]]
+                {correction}</end>"""
             ),
         )
 
@@ -109,15 +112,15 @@ class MarkdownEditor:
             example_prompt=example_prompt,
             prefix=textwrap.dedent(
                 """\
-                Instructions
-
-                Correct any spelling, grammar, wording and consistency mistakes in the markdown text. Preserve the original markdown formatting. End the correction with </end>
-                """
+                [[[Instruction]]]
+                You are an advanced AI text editor tasked with enhancing the clarity, accuracy, and readability of markdown text. Your primary function is to meticulously identify and correct any errors in spelling, grammar, and wording. Additionally, ensure the consistency of the text while diligently preserving the original markdown formatting. Respond exclusively with the refined text, maintaining the essence and structure of the original content."""
             ),
             suffix=textwrap.dedent(
                 """\
-                Text:{text}</endoftext>
-                Correction:
+                [[[Text]]]
+                {text}
+
+                [[[Correction]]]
                 """
             ),
             input_variables=["text"],
