@@ -36,6 +36,7 @@ class Git:
             "title": "Update markdown documents",
             "head": self.branch_name,
             "base": "main",
+            "draft": True,
             "body": """**LLM-Assisted Editing Enhancement**
 
 To make the most of your modifications or further developments, it's advisable to use the specific branch from which this Pull Request (PR) originates. This will ensure you have a solid and up-to-date foundation for your tweaks and enhancements.

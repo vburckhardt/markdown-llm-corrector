@@ -150,37 +150,17 @@ deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-slz-o
 - Virtual Private Cloud workload (e.g., Kubernetes worker nodes) -> IBM Cloud Container Registry"""
     },
     {
-        "text": "[terraform-ibm-cbr](#terraform-ibm-cbr)",
-        "correction": "[terraform-ibm-cbr](#terraform-ibm-cbr)"
+        "text": """See in particular the [fscloud module](./modules/fscloud/) that enables creating an opiniated account-level coarse-grained set of CBR rules and zones aligned with the "secure by default" principles.""",
+        "correction": """Please refer to the [fscloud module](./modules/fscloud/) for creating an opinionated account-level coarse-grained set of CBR rules and zones that align with the "secure by default" principles."""
     },
     {
         "text": """## Overview
 * [terraform-ibm-cbr](#terraform-ibm-cbr)
 * [Submodules](./modules)
-    * [cbr-rule-module](./modules/cbr-rule-module)
-    * [cbr-service-profile](./modules/cbr-service-profile)
-    * [cbr-zone-module](./modules/cbr-zone-module)
-    * [fscloud](./modules/fscloud)
-* [Examples](./examples)
-    * [CBR multi service profile](./examples/multi-service-profile)
-    * [Multi resource rule example](./examples/multi-resource-rule)
-    * [Multi-zone example](./examples/multizone-rule)
-    * [Pre-wired CBR configuration for FS Cloud example](./examples/fscloud)
-    * [Zone example](./examples/zone)
-* [Contributing](#contributing)""",
+    * [cbr-rule-module](./modules/cbr-rule-module)""",
         "correction": """## Overview
 * [terraform-ibm-cbr](#terraform-ibm-cbr)
 * [Submodules](./modules)
-    * [cbr-rule-module](./modules/cbr-rule-module)
-    * [cbr-service-profile](./modules/cbr-service-profile)
-    * [cbr-zone-module](./modules/cbr-zone-module)
-    * [fscloud](./modules/fscloud)
-* [Examples](./examples)
-    * [CBR multi service profile](./examples/multi-service-profile)
-    * [Multi resource rule example](./examples/multi-resource-rule)
-    * [Multi-zone example](./examples/multizone-rule)
-    * [Pre-wired CBR configuration for FS Cloud example](./examples/fscloud)
-    * [Zone example](./examples/zone)
-* [Contributing](#contributing)"""
+    * [cbr-rule-module](./modules/cbr-rule-module)"""
     }
 ]
