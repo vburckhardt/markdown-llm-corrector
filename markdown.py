@@ -101,11 +101,9 @@ class MarkdownEditor:
             input_variables=["text", "correction"],
             template=textwrap.dedent(
                 """\
-                [[[Text]]]
-                {text}
+                Text:{text}</endoftext>
 
-                [[[Correction]]]
-                {correction}</end>"""
+                Correction:{correction}</end>"""
             ),
         )
 
@@ -122,10 +120,9 @@ class MarkdownEditor:
             ),
             suffix=textwrap.dedent(
                 """\
-                [[[Text]]]
-                {text}
+                Text:{text}</endoftext>
 
-                [[[Correction]]]
+                Correction:
                 """
             ),
             input_variables=["text"],
@@ -133,6 +130,7 @@ class MarkdownEditor:
 
         chain = LLMChain(llm=self.llm_model, prompt=prompt, verbose=self.verbose)
         correction = chain(original)["text"].split("</end>")[0]
+        print(correction)
         return original, correction, chunk
 
     def __remove_code_tables_comments(self, markdown_text):

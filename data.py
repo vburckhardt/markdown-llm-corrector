@@ -162,5 +162,11 @@ deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-slz-o
 * [terraform-ibm-cbr](#terraform-ibm-cbr)
 * [Submodules](./modules)
     * [cbr-rule-module](./modules/cbr-rule-module)"""
+    },
+    {
+        "text": """use-case: ITServiceManagement
+industry: Technology""",
+        "correction": """use-case: ITServiceManagement
+industry: Technology"""
     }
 ]
