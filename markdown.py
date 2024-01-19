@@ -62,7 +62,7 @@ class MarkdownEditor:
             
             split_docs = split_docs + sub_split_docs
 
-        text_splitter = MarkdownTextSplitter(chunk_size=1300, chunk_overlap=0)
+        text_splitter = MarkdownTextSplitter(chunk_size=1000, chunk_overlap=0)
 
         data = text_splitter.transform_documents(split_docs)
 

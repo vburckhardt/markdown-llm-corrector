@@ -56,7 +56,7 @@ Red Hat OpenShift Container Platform on VPC landing zone is a deployable archite
 ## Architecture diagram
 {: #ra-ocp-architecture-diagram}
 
-![Architecture diagram of the OpenShift Container Platform on VPC deployable architecture](roks.drawio.svg "Architecture diagram of Red Hat OpenShift Container Platform on VPC landing zone deployable architecture"){: caption="Figure 1. Single region architecture diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud" caption-side="bottom"}{: external download="roks.drawio.svg"}
+![Architecture Diagram of OpenShift Container Platform on VPC Deployable Architecture](roks.drawio.svg "Architecture Diagram of Red Hat OpenShift Container Platform on VPC Landing Zone Deployable Architecture"){: caption="Figure 1. Single Region Architecture Diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud" caption-side="bottom"}{: external download="roks.drawio.svg"}
 
 ## Design requirements
 {: #ra-ocp-design-requirements}
@@ -107,4 +107,4 @@ _Optional section._ Feedback from users implies that architects want only the hi
 ## Next steps
 {: #ra-ocp-next-steps}
 
-If you plan to use OpenShift, explore a more detailed view of the VPC reference architecture with OpenShift at /docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift
+If you plan to use OpenShift, explore a more detailed view of the VPC reference architecture with OpenShift in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).

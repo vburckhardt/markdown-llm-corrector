@@ -2,7 +2,7 @@
 
 Use this Terraform automation to set up a Satellite location on IBM Cloud. The module provisions the IBM Cloud Satellite location, creates six VSIs, assigns three hosts to the control plane, provisions a ROKS Satellite cluster, assigns three hosts to the cluster, and configures a cluster worker pool to an existing ROKS Satellite cluster.
 
-This module is made up of a collection of submodules that simplify the provisioning of Satellite resources on IBM Cloud.
+This module is composed of a collection of submodules that simplify the provisioning of Satellite resources on IBM Cloud.
 
 - location
 - host
@@ -11,7 +11,7 @@ This module is made up of a collection of submodules that simplify the provision
 
 ## Overview
 
-IBM Cloud Satellite enables consistent deployment and operation of applications across all on-premises, edge computing, and public cloud environments from various cloud providers. It harmonizes a fundamental set of Kubernetes, data, AI, and security services to be centrally administered as a service by IBM Cloud, offering comprehensive oversight across all environments via a unified interface. This leads to enhanced developer productivity and accelerated development pace.
+IBM Cloud Satellite helps you deploy and run applications consistently across all on-premises, edge computing, and public cloud environments from any cloud vendor. It standardizes a core set of Kubernetes, data, AI, and security services to be centrally managed as a service by IBM Cloud, with full visibility across all environments through a single pane of glass. The result is greater developer productivity and development velocity.
 
 https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 
@@ -20,9 +20,9 @@ https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 - Creates a Satellite location.
 - Creates six VSIs with RHEL 7.9.
 - Assigns the three hosts to the location control plane.
-- *Conditionally creates* these items:
-    - Creates a Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, allowing you to run Red Hat OpenShift workloads in your location.
-    - Configures a worker pool to an existing Red Hat OpenShift Cluster.
+- Conditionally creates the following items:
+    - A Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, allowing you to run Red Hat OpenShift workloads in your location.
+    - A worker pool configured for an existing Red Hat OpenShift Cluster.
 
 <table cellspacing="10" border="0">
   <tr>
@@ -34,7 +34,7 @@ https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 
 ## Compatibility
 
-This module is intended for use with Terraform 0.13 or later.
+This module is meant for use with Terraform 0.13 or later.
 
 ## Note
 

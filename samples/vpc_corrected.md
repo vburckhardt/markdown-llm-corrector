@@ -14,7 +14,7 @@ This module creates the following IBM Cloud Virtual Private Cloud (VPC) network 
 - Network ACLs: Create network ACLs with multiple rules. By default, VPC network ACLs can have no more than 25 rules.
 - VPN gateways: Create VPN gateways on your subnets by using the `vpn_gateways` variable. For more information about VPN gateways on VPC, see [About site-to-site VPN gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-using-vpn) in the IBM Cloud documentation.
 - VPN gateway connections: Add connections to a VPN gateway.
-- Hub and spoke DNS-sharing model: Optionally create a hub or spoke VPC, with associated custom resolver and DNS resolution binding. See [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model) in the IBM Cloud documentation for details.
+- Hub and spoke DNS-sharing model: Optionally create a hub or spoke VPC, with associated custom resolver and DNS resolution binding. For more information, see [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model) in the IBM Cloud documentation.
 
 ![vpc-module](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/main/.docs/vpc-module.png)
 
@@ -196,6 +196,6 @@ To attach access management tags to resources in this module, you need the follo
 
 ## Contributing
 
-You can report issues and request features for this module in GitHub issues in the module repo. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
+You can report issues and request features for this module in GitHub issues in the module repository. See [Report an Issue or Request a Feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
 
 To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.
