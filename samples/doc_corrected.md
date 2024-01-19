@@ -43,7 +43,7 @@ content-type: reference-architecture
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Red Hat OpenShift Container Platform on VPC Landing Zone
+# Red Hat OpenShift Container Platform on VPC landing zone
 {: #ocp-ra}
 {: toc-content-type="reference-architecture"}
 {: toc-industry="Banking,FinancialSector"}
@@ -53,12 +53,12 @@ content-type: reference-architecture
 
 Red Hat OpenShift Container Platform on VPC landing zone is a deployable architecture solution based on the IBM Cloud for Financial Services reference architecture. It creates secure and compliant Red Hat OpenShift Container Platform workload clusters on a Virtual Private Cloud (VPC) network.
 
-## Architecture Diagram
+## Architecture diagram
 {: #ra-ocp-architecture-diagram}
 
-![Architecture Diagram of OpenShift Container Platform on VPC Deployable Architecture](roks.drawio.svg "Architecture Diagram of Red Hat OpenShift Container Platform on VPC Landing Zone Deployable Architecture"){: caption="Figure 1. Single Region Architecture Diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud" caption-side="bottom"}{: external download="roks.drawio.svg"}
+![Architecture diagram of the OpenShift Container Platform on VPC deployable architecture](roks.drawio.svg "Architecture diagram of Red Hat OpenShift Container Platform on VPC landing zone deployable architecture"){: caption="Figure 1. Single region architecture diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud" caption-side="bottom"}{: external download="roks.drawio.svg"}
 
-## Design Requirements
+## Design requirements
 {: #ra-ocp-design-requirements}
 
 ![Design requirements for Secure infrastructure on VPC for regulated industries](heat-map-deploy-arch-slz-ocp.svg "Design requirements"){: caption="Figure 2. Scope of the design requirements" caption-side="bottom"}
@@ -93,7 +93,7 @@ business challenge, or target cloud environments.
 | Load VPN configuration to simplify VPN setup | VPNs | VPN configuration is the responsibility of the customer | |
 | Collect and store Internet Protocol (IP) traffic information with Activity Tracker and Flow Logs | Activity Tracker | | |
 | Securely connect to multiple networks with a site-to-site virtual private network | | | |
-{: caption="Table 2. Network security architecture decisions" caption-side="bottom"}
+{: caption="Table 2. Network Security Architecture Decisions" caption-side="bottom"}
 
 <!--
 ## Compliance
@@ -107,4 +107,4 @@ _Optional section._ Feedback from users implies that architects want only the hi
 ## Next steps
 {: #ra-ocp-next-steps}
 
-If you plan to use {{site.data.keyword.openshiftlong_notm}}, explore a more detailed view of the [VPC reference architecture with {{site.data.keyword.openshiftshort}}](/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift)
+If you plan to use OpenShift, explore a more detailed view of the VPC reference architecture with OpenShift at /docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift

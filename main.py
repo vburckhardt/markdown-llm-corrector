@@ -19,7 +19,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
 
-logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.INFO)
 
 
 def parse_arguments():
@@ -78,7 +78,7 @@ def main():
     credentials = {"url": "https://us-south.ml.cloud.ibm.com", "apikey": apikey}
     parameters = {
         GenParams.DECODING_METHOD: DecodingMethods.GREEDY,
-        GenParams.STOP_SEQUENCES: ["</end>"],
+        GenParams.STOP_SEQUENCES: ["</end>", "Text:<startoftext>"],
         GenParams.MAX_NEW_TOKENS: 1500,
         GenParams.MIN_NEW_TOKENS: 1,
     }
@@ -96,7 +96,7 @@ def main():
         examples,
         HuggingFaceEmbeddings(),
         FAISS,
-        k=30,
+        k=20,
     )
 
     markdown_editor = MarkdownEditor(

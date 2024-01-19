@@ -9,6 +9,7 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import MarkdownTextSplitter
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain_community.document_loaders import DirectoryLoader
+from langchain.text_splitter import MarkdownHeaderTextSplitter
 
 
 class MarkdownEditor:
@@ -48,12 +49,22 @@ class MarkdownEditor:
         
         data = self.__load_files()
 
+        header_text_splitter = MarkdownHeaderTextSplitter(return_each_line=True, strip_headers=True, headers_to_split_on=[("#", "Header 1"), ("##", "Header 2"), ("###", "Header 3"), ("####", "Header 4")])
+
+        split_docs = []
+
         for doc in data:
             doc.page_content = self.__remove_code_tables_comments(doc.page_content)
+            sub_split_docs = header_text_splitter.split_text(doc.page_content)
 
-        text_splitter = MarkdownTextSplitter(chunk_size=600, chunk_overlap=0)
+            for sub_doc in sub_split_docs:                
+                sub_doc.metadata['source'] = doc.metadata['source']
+            
+            split_docs = split_docs + sub_split_docs
 
-        data = text_splitter.transform_documents(data)
+        text_splitter = MarkdownTextSplitter(chunk_size=1300, chunk_overlap=0)
+
+        data = text_splitter.transform_documents(split_docs)
 
         with ThreadPoolExecutor(max_workers=50) as executor:
             futures = [executor.submit(self.__process_chunk, doc) for doc in data]
@@ -72,16 +83,21 @@ class MarkdownEditor:
 
             for original, correction in corrections:
                 # Strip newlines from original and correction
-                original_stripped = original.strip("\n")
-                correction_stripped = correction.strip("\n")
+                #original_stripped = original.strip("\n")
+                #correction_stripped = correction.strip("\n")
 
                 if original in modified_contents:
-                    modified_contents = modified_contents.replace(
-                        original, correction_stripped
-                    )
+                    if correction != "No corrections required.":
+
+                        # debug
+                        # correction_stripped = f"<o>{original}</o><c>{correction_stripped}</c>"
+
+                        modified_contents = modified_contents.replace(
+                            original, correction
+                        )
                 else:
                     # Log or handle cases where the original is not found
-                    logging.info("'%s' not found in the document.", original_stripped)
+                    logging.warn("'%s' not found in the document.", original)
 
             if self.replace_with_correction:
                 new_file_path = original_file_path  # Override file content in git mode
@@ -101,9 +117,9 @@ class MarkdownEditor:
             input_variables=["text", "correction"],
             template=textwrap.dedent(
                 """\
-                Text:{text}</endoftext>
+                Text:<startoftext>{text}</endoftext>
 
-                Correction:{correction}</end>"""
+                Correction:<startofcorrection>{correction}</end>"""
             ),
         )
 
@@ -116,21 +132,24 @@ class MarkdownEditor:
             prefix=textwrap.dedent(
                 """\
                 [[[Instruction]]]
-                You are an advanced AI text editor tasked with enhancing the clarity, accuracy, and readability of markdown text. Your primary function is to meticulously identify and correct any errors in spelling, grammar, and wording. Additionally, ensure the consistency of the text while diligently preserving the original markdown formatting. Respond exclusively with the refined text, maintaining the essence and structure of the original content."""
+                You are an advanced AI text editor tasked with enhancing the clarity, accuracy, and readability of the content.
+                Your primary function is to meticulously identify and correct any errors in spelling, grammar, wording and styling.
+                Additionally, preserve the original markdown formatting, including markdown links.
+                Respond exclusively with the refined text, maintaining the essence and structure of the original content.
+                If there is no correction to make, respond with "No corrections required." """
             ),
             suffix=textwrap.dedent(
                 """\
-                Text:{text}</endoftext>
+                Text:<startoftext>{text}</endoftext>
 
-                Correction:
-                """
+                Correction:<startofcorrection>"""
             ),
             input_variables=["text"],
         )
 
         chain = LLMChain(llm=self.llm_model, prompt=prompt, verbose=self.verbose)
         correction = chain(original)["text"].split("</end>")[0]
-        print(correction)
+        logging.log(logging.DEBUG, "Correction: %s", correction)
         return original, correction, chunk
 
     def __remove_code_tables_comments(self, markdown_text):
@@ -150,4 +169,7 @@ class MarkdownEditor:
         # Remove HTML-style comments
         no_comments = re.sub(r"<!--.*?-->", "", no_tables, flags=re.DOTALL)
 
-        return no_comments
+        # Remove anything between --- sections
+        no_dashdashdash = re.sub(r"---.*?---", "", no_comments, flags=re.DOTALL)
+
+        return no_dashdashdash

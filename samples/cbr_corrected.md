@@ -1,6 +1,6 @@
 # Pre-wired CBR configuration for FS Cloud
 
-This module generates default coarse-grained CBR rules in a given account, following a "secure by default" approach - that is, denying all flows by default, except for known documented communication in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about):
+This module creates default coarse-grained CBR rules in a given account, following a "secure by default" approach. The rules deny all flows by default, except for documented communication in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about). The following are the CBR rules created by the module:
 - Cloud Object Storage (COS) -> Key Management Service (KMS)
 - Block Storage -> Key Management Service (KMS)
 - IBM Cloud Kubernetes Service (IKS) -> Key Management Service (KMS)
@@ -15,16 +15,16 @@ This module generates default coarse-grained CBR rules in a given account, follo
 
 **Note on KMS**: The module supports setting up rules for Key Protect and Hyper Protect Crypto Services. By default, the module sets rules for Hyper Protect Crypto Services, but this can be modified to use Key Protect, Hyper Protect, or both Key Protect and Hyper Protect Crypto Services using the input variable `kms_service_targeted_by_prewired_rules`.
 
-**Note on containers-kubernetes**: The module supports the pseudo-service names `containers-kubernetes-management` and `containers-kubernetes-cluster` to distinguish between the cluster and management APIs (see [details](https://cloud.ibm.com/docs/containers?topic=containers-cbr&interface=ui#protect-api-types-cbr) ). The module creates separate CBR rules for the two types of APIs by default to align with common real-world scenarios. `containers-kubernetes` can be used to create a CBR targeting both the cluster and management APIs.
+**Note on containers-kubernetes**: The module supports the pseudo-service names `containers-kubernetes-management` and `containers-kubernetes-cluster` to distinguish between the cluster and management APIs. For more information, see the [Protecting specific APIs](https://cloud.ibm.com/docs/containers?topic=containers-cbr&interface=ui#protect-api-types-cbr) section of Protecting cluster resources with context-based restrictions. By default, the module creates separate CBR rules for the two types of APIs to align with common real-world scenarios. `containers-kubernetes` can be used to create a CBR that targets both the cluster and management APIs.
 
-This module is designed to allow the consumer to add additional custom rules to open up additional flows necessarity for their usage. See the `custom_rule_contexts_by_service` input variable, and an [usage example](../../examples/fscloud/) demonstrating how to open up more flows.
+This module is designed to allow the consumer to add custom rules to open more flows. See the `custom_rule_contexts_by_service` input variable, and a [usage example](../../examples/fscloud/) that demonstrates how to open more flows.
 
 The module also pre-creates CBR zones for each service in the account as a best practice. CBR rules associated with these CBR zones can be set by using the `custom_rule_contexts_by_service` variable.
 
-Important: To avoid unexpected breakage in the account against which this module is executed, the CBR rule enforcement mode is set to 'report' (or 'disabled' for services not supporting 'report' mode) by default. It is recommended to test this module first with these default settings and then use the `target_service_details` variable to set the enforcement mode to "enabled" gradually by service. The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the key protect ("kms") service.
+Important: To avoid unexpected breakage in the account against which this module is executed, the CBR rule enforcement mode is set to 'report' mode (or to 'disabled' for services that don't support 'report' mode) by default. Test the module with these default settings. Then, service by service, update the enforcement mode in the `target_service_details` variable to "enabled". The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the Key Protect ("kms") service.
 
 ## Note
-The services 'compliance', 'directlink', 'iam-groups', 'containers-kubernetes', 'user-management' does not support restriction per location.
+The services 'compliance', 'directlink', 'iam-groups', 'containers-kubernetes', and 'user-management' do not support location-based restrictions.
 
 ### Usage
 

@@ -1,0 +1,101 @@
+text,correction,,
+## Hllo World!,## Hello World!,,
+I enjoy using [mardown for documenttion](https://example.com).,I enjoy using [markdown for documentation](https://example.com).,,
+* Bullet poitns are usefull,* Bullet points are useful,,
+**This is bold text with a tyypo**,**This is bold text with a typo**,,
+IBM Catalog Solutions which **requires pre-requisite Schematics Workspace ID**,IBM Catalog Solutions **requiring pre-requisite Schematics Workspace ID**,,
+1.  [Markdown](https://example.com) Frist item in a list,1.  [Markdown](https://example.com) First item in a list,,
+![Alt txt](image.jpg),![Alt text](image.jpg),,
+> Blockqoute with mispellings,> Blockquote with misspellings,,
+Use `inline code` to highlight code snippits,Use `inline code` to highlight code snippets.,,
+# Header 1 with a mistake,# Header 1 with a Mistake,,
+### Thid level header is usefull,### Third Level Header is Useful,,
+#### The smallet header,#### The Smallest Header,,
+"Multi-line text with issues:
+- This is the first line,
+- and this is the secon one.","Multi-line text with issues:
+- This is the first line,
+- And this is the second one.",,
+## Headers are important for strcuture,## Headers are Important for Structure,,
+My favorite thing about Markdown is it's simplicity and ease of use.,What I appreciate most about Markdown is its simplicity and user-friendliness.,,
+![Image without alt text](image.jpg),![Image without alt text](image.jpg),,
+"Reference-style links are also valid: [Markdown][1]
+
+[1]: https://example.com","Reference-style links are also valid: [Markdown][1]
+
+[1]: https://example.com",,
+"IBM Cloud Satellite helps you deploy and run applications consistently across all on-premises, edge computing, and public cloud environments from any cloud vendor. It standardizes a core set of Kubernetes, data, AI, and security services to be centrally managed as a service by IBM Cloud, with full visibility across all environments through a single pane of glass. The result is greater developer productivity and development velocity.","IBM Cloud Satellite enables consistent deployment and operation of applications across all on-premises, edge computing, and public cloud environments from various cloud providers. It harmonizes a fundamental set of Kubernetes, data, AI, and security services to be centrally administered as a service by IBM Cloud, offering comprehensive oversight across all environments via a unified interface. This leads to enhanced developer productivity and accelerated development pace.",,
+# IBM module,# IBM Module,,
+Example generating a markdown link: https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started. This is an existing markdown link [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model).,Example generating a markdown link: [IBM Cloud Satellite Getting Started](https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started). This is an existing markdown link [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model).,,
+"Creates and configures **1 HANA instance, 0 to N NetWeaver instances and 1 Optional ShareFS** with **RHEL or SLES OS** distribution.","Creates and configures **one HANA instance, zero to several NetWeaver instances and one optional ShareFS** with **RHEL or SLES OS** distribution.",,
+"The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the key protect (""kms"") service.","The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the Key Protect (""kms"") service.",,
+    Please live the spaces and tabs as in te original.,    Please leave the spaces and tabs as in the original.,,
+"![Architecture diagram of the OpenShift Container Platform on VPC deployable architecture](roks.drawio.svg ""Architecture diagram of Red Hat OpenShift Container Platform on VPC landing zone deployable architecture""){{: caption=""Figure 1. Single region architecture diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud"" caption-side=""bottom""}}{{: external download=""roks.drawio.svg""}}","![Architecture Diagram of OpenShift Container Platform on VPC Deployable Architecture](roks.drawio.svg ""Architecture Diagram of Red Hat OpenShift Container Platform on VPC Landing Zone Deployable Architecture""){{: caption=""Figure 1. Single Region Architecture Diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud"" caption-side=""bottom""}}{{: external download=""roks.drawio.svg""}}",,
+deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-slz-ocp-95fccffc-ae3b-42df-b6d9-80be5914d852-global,deployment-url: https://cloud.ibm.com/catalog/architecture/deploy-arch-ibm-slz-ocp-95fccffc-ae3b-42df-b6d9-80be5914d852-global,,
+"- Data retention, [lifecycle](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-archive) and archiving options","- Data retention, [lifecycle](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-archive), and archiving options.",,
+"- IBM Cloud VPC Infrastructure Services (IS) -> Cloud Object Storage (COS)
+- Virtual Private Cloud workload (eg: Kubernetes worker nodes) -> IBM Cloud Container Registry","- IBM Cloud VPC Infrastructure Services (IS) -> Cloud Object Storage (COS)
+- Virtual Private Cloud workload (e.g., Kubernetes worker nodes) -> IBM Cloud Container Registry",,
+"See in particular the [fscloud module](./modules/fscloud/) that enables creating an opiniated account-level coarse-grained set of CBR rules and zones aligned with the ""secure by default"" principles.","Please refer to the [fscloud module](./modules/fscloud/) for creating an opinionated account-level coarse-grained set of CBR rules and zones that align with the ""secure by default"" principles.",,
+"* [terraform-ibm-cbr](#terraform-ibm-cbr)
+* [Submodules](./modules)
+    * [cbr-rule-module](./modules/cbr-rule-module)","* [terraform-ibm-cbr](#terraform-ibm-cbr)
+* [Submodules](./modules)
+    * [cbr-rule-module](./modules/cbr-rule-module)",,
+"use-case: ITServiceManagement
+industry: Technology","use-case: ITServiceManagement
+industry: Technology",,
+# Pre-wired CBR configuration for FS Cloud example,# Pre-wired CBR configuration for FS Cloud example,,
+"This example is designed to showcase some of the key customization options for the module. In addition to the pre-wired CBR rules documented at [fscloud profile](../../profiles/fscloud/), this example shows how to customize the module to:","This example showcases some of the key customization options for the module. In addition to the pre-wired CBR rules documented at [fscloud profile](../../profiles/fscloud/), this example includes the following customizations:",,
+"Context: This example covers a ""pseudo"" real-world scenario where:
+1. ICD Mongodb and Postgresql instances are encrypted using keys stored in Key Protect.
+2. Schematics is used to execute terraform that creates Key Protect keys and key rings over its public endpoint.","The example covers the following example scenario:
+- The instances of Databases for MongoDB and Databases for Postgresql are encrypted with keys that are stored in Key Protect.
+- Schematics is used to execute the Terraform logic that creates Key Protect keys and key rings over its public endpoint.",,
+"Applications are running in the VPC and need access to PostgreSQL via the private endpoint - e.g., a VPE.",Applications are running in the VPC and need access to PostgreSQL via the private endpoint. For example with a VPE.,,
+# Multi resource rule example,# Multi resource rule example,,
+An end-to-end example to show how to apply a rule to multiple resources. This example uses the IBM Cloud Provider to automate the following infrastructure:,An end-to-end example to demonstrate how to apply a rule to multiple resources. This example uses the IBM Cloud Provider to automate the following infrastructure:,,
+Applies a single CBR rule to only allow access from the VPC zone to the COS Instance and the same rule for the Bucket,Applies a single CBR rule to allow access only from the VPC zone to the COS Instance and to the bucket,,
+# CBR multi service profile,# CBR multi service profile,,
+Create a VPC and create a CBR zone to allowlist the VPC.,Create a VPC and create a CBR zone to allow access from the VPC.,,
+# Multi-zone example,# Multi-zone example,,
+An end-to-end example that uses the module's default variable values. This example uses the IBM Cloud Provider to automate the following infrastructure::,An end-to-end example that uses the module's default variable values. This example uses the IBM Cloud Provider to automate the following infrastructure:,,
+# Zone example,# Zone example,,
+"This module creates default coarse-grained CBR rules in a given account following a ""secure by default"" approach - that is: deny all flows by default, except known documented communication in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about):","This module creates default coarse-grained CBR rules in a given account, following a ""secure by default"" approach. By default, the rules deny all flows except for the documented communication in the [reference architecture for IBM Cloud for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about).
+The module creates the following rules:",,
+**Note on containers-kubernetes**: the module supports the pseudo-service names `containers-kubernetes-management` and `containers-kubernetes-cluster` to distinguish between the cluster and management APIs (see [details](https://cloud.ibm.com/docs/containers?topic=containers-cbr&interface=ui#protect-api-types-cbr) ). The module creates separates CBR rules for the two types of APIs by default to align with common real-world scenarios. `containers-kubernetes` can be used to create a CBR targetting both the cluster and management APIs.,"**Note on containers-kubernetes**: The module supports the pseudo-service names `containers-kubernetes-management` and `containers-kubernetes-cluster` to distinguish between the cluster and management APIs. For more information, see the [Protecting specific APIs](https://cloud.ibm.com/docs/containers?topic=containers-cbr&interface=ui#protect-api-types-cbr) section of Protecting cluster resources with context-based restrictions. By default, the module creates separate CBR rules for the two types of APIs to align with common real-world scenarios. `containers-kubernetes` can be used to create a CBR that targets both the cluster and management APIs.",,
+"This module is designed to allow the consumer to add additional custom rules to open up additional flows necessarity for their usage. See the `custom_rule_contexts_by_service` input variable, and an [usage example](../../examples/fscloud/) demonstrating how to open up more flows.","This module is designed to allow the consumer to add custom rules to open more flows. See the `custom_rule_contexts_by_service` input variable, and a [usage example](../../examples/fscloud/) that demonstrate how to open more flows.",,
+The module also pre-creates CBR zones for each service in the account as a best practice. CBR rules associated with these CBR zones can be set by using the `custom_rule_contexts_by_service` variable.,"As a best practice, the module also creates CBR zones for each service in the account. You can set CBR rules for these CBR zones by using the `custom_rule_contexts_by_service` variable.",,
+"Important: To avoid unexpected breakage in the account against which this module is executed, the CBR rule enforcement mode is set to 'report' (or 'disabled' for services not supporting 'report' mode) by default. It is recommended to test this module first with these default settings and then use the `target_service_details` variable to set the enforcement mode to ""enabled"" gradually by service. The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the Key Protect (""kms"") service.","Important: To avoid failures in the account against which this module is executed, be default, the CBR rule enforcement mode is set to 'report' mode (or to 'disabled' for services that don't support 'report' mode). Test the module with these default settings. Then, service by service, update the enforcement mode in the `target_service_details` variable to ""enabled"". The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the Key Protect (""kms"") service.",,
+"For information about how to create and run tests, see [Validation tests](https://terraform-ibm-modules.github.io/documentation/#/tests) in the project documentation.","For information about how to create and run tests, see [Validation tests](https://terraform-ibm-modules.github.io/documentation/#/tests) in the project documentation.",,
+"See in particular the [fscloud module](./modules/fscloud/) that enables creating an opinionated account-level coarse-grained set of CBR rules and zones aligned with the ""secure by default"" principles.","See in particular the [fscloud module](./modules/fscloud/) that creates an opinionated account-level set of CBR rules and zones that are aligned with ""secure by default"" principles.",,
+"[![Graduated (Supported)](https://img.shields.io/badge/status-Graduated%20(Supported)-brightgreen?style=plastic)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-landing-zone-vpc?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/releases/latest)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)","[![Graduated (Supported)](https://img.shields.io/badge/status-Graduated%20(Supported)-brightgreen?style=plastic)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-landing-zone-vpc?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/releases/latest)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)",,
+## Reference architectures,## Reference architectures,,
+## Customize your environment,## Customize your environment,,
+"To set up your local development environment, see [Local Development Setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.","To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.",,
+Subnets: Create one to three zones,Subnets: Create one to three subnets across availability zones,,
+"Be sure you have the correct Terraform version (0.13 or later), you can choose the binary here:
+- https://releases.hashicorp.com/terraform/","Be sure you have the correct Terraform version (0.13 or later), you can choose the binary [here](https://releases.hashicorp.com/terraform/)",,
+This module is a collection of submodules that make it easier to provision Satellite resources on IBM Cloud.,This module is made up of a collection of submodules that simplify the provisioning of Satellite resources on IBM Cloud.,,
+"If you want to use a particular version of a module, set the argument `version` to the module version.","To use a particular version of a module, set the `version` argument to the module version.",,
+"If you want to configure an optional parameter, override the default value.","To configure an optional parameter, override the default value.",,
+This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) network components:,This module creates the following IBM Cloud Virtual Private Cloud (VPC) network components:,,
+![vpc-module](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/main/.docs/vpc-module.png),![vpc-module](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/main/.docs/vpc-module.png),,
+"To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.","To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.",,
+The module can be utilized to,The module can be used to,,
+:information_source: **Tip:**,:information_source: **Tip:**,,
+To use the bastion host,To use the bastion host,,
+This code is a version of the [parent root module](../../) that includes a default configuration that complies with the relevant controls from the [IBM Cloud Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about).,This code is a version of the [parent root module](../../) that includes a default configuration that complies with the relevant controls from the [IBM Cloud Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about).,,
+The default values in this profile were scanned by [IBM Code Risk Analyzer (CRA)](https://cloud.ibm.com/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-command),The default values in this profile were scanned by [IBM Code Risk Analyzer (CRA)](https://cloud.ibm.com/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-command),,
+"This module creates default coarse-grained CBR rules in a given account following a ""secure by default"" approach - that is: deny all flows by default, except known documented communication in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about):","This module creates default coarse-grained CBR rules in a given account, following a ""secure by default"" approach. The rules deny all flows by default, except for documented communication in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about). The following are the CBR rules created by the module:",,
+the [IBM Cloud Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about),the [IBM Cloud Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about),,
+The landing zone module can be used to create a fully customizable VPC environment,The landing zone module can be used to create a fully customizable VPC environment,,
+Do not touch dash (-) separated terms, including in links [terraform-ibm-landing-zone](#terraform-ibm-landing-zone),Do not touch dash (-) separated terms, including in links [terraform-ibm-landing-zone](#terraform-ibm-landing-zone)

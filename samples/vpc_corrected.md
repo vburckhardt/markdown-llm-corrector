@@ -1,4 +1,4 @@
-# IBM Secure Landing Zone VPC Module
+# IBM Secure Landing Zone VPC module
 
 [![Graduated (Supported)](https://img.shields.io/badge/status-Graduated%20(Supported)-brightgreen?style=plastic)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
@@ -6,7 +6,7 @@
 [![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-landing-zone-vpc?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/releases/latest)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
-This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) network components:
+This module creates the following IBM Cloud Virtual Private Cloud (VPC) network components:
 
 - VPC: Creates a VPC in a resource group and supports classic access. The VPC and components are specified in the [main.tf](main.tf) file.
 - Public gateways: Optionally create public gateways in the VPC in each of the three zones of the VPC's region.
@@ -16,7 +16,7 @@ This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) net
 - VPN gateway connections: Add connections to a VPN gateway.
 - Hub and spoke DNS-sharing model: Optionally create a hub or spoke VPC, with associated custom resolver and DNS resolution binding. See [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model) in the IBM Cloud documentation for details.
 
-![VPC Module](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/main/.docs/vpc-module.png)
+![vpc-module](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/main/.docs/vpc-module.png)
 
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->
@@ -38,7 +38,7 @@ This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) net
 
 ### Presets
 
-In addition to this root module, this repository provides two submodules that call the root module with presets and defaults that are aligned with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. See the [landing-zone-submodules](/landing-zone-submodule/) for details.
+In addition to this root module, this repository provides two submodules that call the root module with presets and defaults that align with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. For more information, see the [landing-zone-submodules](/landing-zone-submodule/) section.
 
 ### Usage
 ```terraform
@@ -60,7 +60,7 @@ module vpc {
 
 ### Subnets
 
- You can create a maximum of three zones in the [subnet.tf](subnet.tf) file. The zones are defined as lists in the file, and then are converted to objects before the resources are provisioned. The conversion ensures that the addition or deletion of subnets affects only the added or deleted subnets, as shown in the following example.
+ You can create up to three zones in the [subnet.tf](subnet.tf) file. The zones are defined as lists in the file and then converted to objects before resource provisioning. This conversion ensures that adding or removing subnets affects only the relevant subnets, as demonstrated in the following example.
 
 ```terraform
 module.subnets.ibm_is_subnet.subnet["gcat-multizone-subnet-a"]
@@ -72,16 +72,16 @@ module.subnets.ibm_is_vpc_address_prefix.subnet_prefix["gcat-multizone-subnet-c"
 ```
 
 ### Required IAM access policies
-You need the following permissions to run this module.
+You need the following permissions to run this module:
 
 - IAM services
     - **VPC Infrastructure** services
         - `Editor` platform access
     - **No service access**
-        - **Resource Group** \<your resource group>
+        - **Resource Group** <your resource group>
         - `Viewer` resource group access
 
-To attach access management tags to resources in this module, you need the following permissions.
+To attach access management tags to resources in this module, you need the following permissions:
 
 - IAM Services
     - **Tagging** service
@@ -196,6 +196,6 @@ To attach access management tags to resources in this module, you need the follo
 
 ## Contributing
 
-You can report issues and request features for this module in GitHub issues in the module repository. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
+You can report issues and request features for this module in GitHub issues in the module repo. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
 
-To set up your local development environment, see [Local Development Setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.
+To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.
