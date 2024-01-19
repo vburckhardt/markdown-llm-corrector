@@ -96,7 +96,7 @@ def main():
         examples,
         HuggingFaceEmbeddings(),
         FAISS,
-        k=20,
+        k=10,
     )
 
     markdown_editor = MarkdownEditor(

@@ -6,7 +6,7 @@
 [![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-landing-zone-vpc?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/releases/latest)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
-This module creates the following IBM Cloud Virtual Private Cloud (VPC) network components:
+This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) network components:
 
 - VPC: Creates a VPC in a resource group and supports classic access. The VPC and components are specified in the [main.tf](main.tf) file.
 - Public gateways: Optionally create public gateways in the VPC in each of the three zones of the VPC's region.
@@ -14,7 +14,7 @@ This module creates the following IBM Cloud Virtual Private Cloud (VPC) network 
 - Network ACLs: Create network ACLs with multiple rules. By default, VPC network ACLs can have no more than 25 rules.
 - VPN gateways: Create VPN gateways on your subnets by using the `vpn_gateways` variable. For more information about VPN gateways on VPC, see [About site-to-site VPN gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-using-vpn) in the IBM Cloud documentation.
 - VPN gateway connections: Add connections to a VPN gateway.
-- Hub and spoke DNS-sharing model: Optionally create a hub or spoke VPC, with associated custom resolver and DNS resolution binding. For more information, see [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model) in the IBM Cloud documentation.
+- Hub and spoke DNS-sharing model: Optionally create a hub or spoke VPC, with associated custom resolver and DNS resolution binding. For more information, see the [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model) section of the IBM Cloud documentation.
 
 ![vpc-module](https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/main/.docs/vpc-module.png)
 
@@ -38,7 +38,7 @@ This module creates the following IBM Cloud Virtual Private Cloud (VPC) network 
 
 ### Presets
 
-In addition to this root module, this repository provides two submodules that call the root module with presets and defaults that align with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. For more information, see the [landing-zone-submodules](/landing-zone-submodule/) section.
+In addition to this root module, this repository provides two submodules that call the root module with presets and defaults that align with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. See the [landing-zone-submodules](/landing-zone-submodule/) for details.
 
 ### Usage
 ```terraform
@@ -196,6 +196,6 @@ To attach access management tags to resources in this module, you need the follo
 
 ## Contributing
 
-You can report issues and request features for this module in GitHub issues in the module repository. See [Report an Issue or Request a Feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
+You can report issues and request features for this module in GitHub issues in the module repo. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
 
 To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.

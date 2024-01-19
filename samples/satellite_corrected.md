@@ -2,7 +2,7 @@
 
 Use this Terraform automation to set up a Satellite location on IBM Cloud. The module provisions the IBM Cloud Satellite location, creates six VSIs, assigns three hosts to the control plane, provisions a ROKS Satellite cluster, assigns three hosts to the cluster, and configures a cluster worker pool to an existing ROKS Satellite cluster.
 
-This module is composed of a collection of submodules that simplify the provisioning of Satellite resources on IBM Cloud.
+This module is a collection of submodules that make it easier to provision Satellite resources on IBM Cloud.
 
 - location
 - host
@@ -20,9 +20,9 @@ https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 - Creates a Satellite location.
 - Creates six VSIs with RHEL 7.9.
 - Assigns the three hosts to the location control plane.
-- Conditionally creates the following items:
-    - A Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, allowing you to run Red Hat OpenShift workloads in your location.
-    - A worker pool configured for an existing Red Hat OpenShift Cluster.
+- *Conditionally creates* these items:
+    - Creates a Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, enabling the deployment of Red Hat OpenShift workloads in the location.
+    - Configures a worker pool to an existing Red Hat OpenShift Cluster.
 
 <table cellspacing="10" border="0">
   <tr>
@@ -35,6 +35,8 @@ https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 ## Compatibility
 
 This module is meant for use with Terraform 0.13 or later.
+
+Text:<startoftext>
 
 ## Note
 
@@ -59,7 +61,7 @@ Be sure you have the correct Terraform version (0.13 or later), you can choose t
 
 ### Terraform provider plug-ins
 
-Be sure you have the compiled plug-ins on `$HOME/.terraform.d/plugins/`
+Be sure you have the compiled plug-ins on $HOME/.terraform.d/plugins/
 
 - [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
@@ -146,7 +148,7 @@ module "satellite-ibm" {
 
 ## Pre-commit Hooks
 
-- Run the following command to execute the pre-commit hooks defined in the `.pre-commit-config.yaml` file:
+- Run the following command to execute the pre-commit hooks that are defined in the `.pre-commit-config.yaml` file:
 
     ```bash
     pre-commit run -a`
@@ -160,13 +162,13 @@ module "satellite-ibm" {
 
 ## How to input variable values through a file
 
-- To review the plan for the configuration defined (no resources are provisioned), run the following command:
+To review the plan for the configuration defined (no resources are provisioned), run the following command:
 
     ```hcl
     terraform plan -var-file=./input.tfvars`
     ```
 
-- To execute and start building the configuration that is defined in the plan (provision resources), run the following command:
+- To execute and start building the configuration defined in the plan (provision resources), run the following command:
 
     ```hcl
     terraform apply -var-file=./input.tfvars`
@@ -178,4 +180,4 @@ module "satellite-ibm" {
     terraform destroy -var-file=./input.tfvars`
     ```
 
-All optional parameters are set to null by default in the example's `variables.tf` file. If you want to configure an optional parameter, override the default value.
+All optional parameters are set to null by default in the example's `variables.tf` file. To configure an optional parameter, override the default value.
