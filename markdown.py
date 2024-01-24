@@ -1,6 +1,7 @@
 import re
 import textwrap
 import logging
+import os
 
 from concurrent.futures import ThreadPoolExecutor
 from langchain.prompts import PromptTemplate
@@ -31,6 +32,17 @@ class MarkdownEditor:
         self.verbose = verbose
         self.corrected_file_name_suffix = corrected_file_name_suffix
 
+    def __lint(self, data):
+
+        for d in data:
+            file_path = d.metadata['source']
+            os.system(
+                f"markdownlint -f {file_path}"
+            )
+
+        data = self.__load_files()
+        return data
+
     def __load_files(self):
         if self.original_file_path is not None:
             loader = TextLoader(self.original_file_path)
@@ -49,6 +61,8 @@ class MarkdownEditor:
         
         data = self.__load_files()
 
+        data = self.__lint(data)
+
         header_text_splitter = MarkdownHeaderTextSplitter(return_each_line=True, strip_headers=True, headers_to_split_on=[("#", "Header 1"), ("##", "Header 2"), ("###", "Header 3"), ("####", "Header 4")])
 
         split_docs = []
@@ -57,12 +71,12 @@ class MarkdownEditor:
             doc.page_content = self.__remove_code_tables_comments(doc.page_content)
             sub_split_docs = header_text_splitter.split_text(doc.page_content)
 
-            for sub_doc in sub_split_docs:                
+            for sub_doc in sub_split_docs:
                 sub_doc.metadata['source'] = doc.metadata['source']
             
             split_docs = split_docs + sub_split_docs
 
-        text_splitter = MarkdownTextSplitter(chunk_size=800, chunk_overlap=0)
+        text_splitter = MarkdownTextSplitter(chunk_size=600, chunk_overlap=0)
 
         data = text_splitter.transform_documents(split_docs)
 
@@ -82,10 +96,6 @@ class MarkdownEditor:
                 modified_contents = file.read()
 
             for original, correction in corrections:
-                # Strip newlines from original and correction
-                #original_stripped = original.strip("\n")
-                #correction_stripped = correction.strip("\n")
-
                 if original in modified_contents:
                     if correction != "No corrections required.":
 

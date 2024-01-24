@@ -13,7 +13,7 @@ This module is a collection of submodules that make it easier to provision Satel
 
 IBM Cloud Satellite helps you deploy and run applications consistently across all on-premises, edge computing, and public cloud environments from any cloud vendor. It standardizes a core set of Kubernetes, data, AI, and security services to be centrally managed as a service by IBM Cloud, with full visibility across all environments through a single pane of glass. The result is greater developer productivity and development velocity.
 
-https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
+<https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started>
 
 ## Features
 
@@ -21,8 +21,8 @@ https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started
 - Creates 6 VSIs with RHEL 7.9.
 - Assigns the three hosts to the location control plane.
 - *Conditionally creates* these items:
-    - Create a Red Hat OpenShift on IBM Cloud cluster and assign the three hosts to the cluster so that you can run Red Hat OpenShift workloads in your location.
-    - Configure a worker pool to an existing Red Hat OpenShift Cluster.
+  - Create a Red Hat OpenShift on IBM Cloud cluster and assign the three hosts to the cluster so that you can run Red Hat OpenShift workloads in your location.
+  - Configure a worker pool to an existing Red Hat OpenShift Cluster.
 
 <table cellspacing="10" border="0">
   <tr>
@@ -55,7 +55,8 @@ This module is meant for use with Terraform 0.13 or later.
 ### Terraform
 
 Be sure you have the correct Terraform version (0.13 or later), you can choose the binary here:
-- https://releases.hashicorp.com/terraform/
+
+- <https://releases.hashicorp.com/terraform/>
 
 ### Terraform provider plug-ins
 

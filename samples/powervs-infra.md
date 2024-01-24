@@ -9,9 +9,11 @@
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
 ## Summary
+
 This repository contains deployable architecture solutions which helps in provisioning VPC landing zone, PowerVS workspace and interconnecting them. The solutions are available in IBM Cloud Catalog and also can be deployed without catalog as well except the second solution below.
 
 Three solutions are offered:
+
 1. [PowerVS full-stack variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/full-stack)
     - Creates three VPCs with RHEL or SLES instances, Power Virtual Server workspace, interconnects them and configures os network management services(SQUID proxy, NTP, NFS, and DNS services) using ansible galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
 2. [PowerVS extension variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/extension)
@@ -28,11 +30,13 @@ Three solutions are offered:
     - This solution is typically used for converting an existing Power Virtual Server landscape to Schematics workspace.
 
 ## Reference architectures
+
 - [PowerVS full-stack variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/reference-architectures/full-stack/deploy-arch-ibm-pvs-inf-full-stack.md)
 - [PowerVS extension variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/reference-architectures/extension/deploy-arch-ibm-pvs-inf-extension.md)
 - [PowerVS quickstart variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/reference-architectures/quickstart/deploy-arch-ibm-pvs-inf-quickstart.md)
 
 ## Solutions
+
 | Variation  | Available on IBM Catalog  |  Requires IBM Schematics Workspace ID | Creates VPC Landing Zone | Performs VPC VSI OS Config | Creates PowerVS Infrastructure | Creates PowerVS Instance | Performs PowerVS OS Config |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | [Full-Stack](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/full-stack)  | :heavy_check_mark:  | N/A  | :heavy_check_mark:  | :heavy_check_mark:  |  :heavy_check_mark: | N/A | N/A |
@@ -42,11 +46,12 @@ Three solutions are offered:
 
 <!-- BEGIN OVERVIEW HOOK -->
 ## Overview
-* [terraform-ibm-powervs-infrastructure](#terraform-ibm-powervs-infrastructure)
-* [Submodules](./modules)
-    * [ansible-configure-network-services](./modules/ansible-configure-network-services)
-    * [powervs-vpc-landing-zone](./modules/powervs-vpc-landing-zone)
-* [Contributing](#contributing)
+
+- [terraform-ibm-powervs-infrastructure](#terraform-ibm-powervs-infrastructure)
+- [Submodules](./modules)
+  - [ansible-configure-network-services](./modules/ansible-configure-network-services)
+  - [powervs-vpc-landing-zone](./modules/powervs-vpc-landing-zone)
+- [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
 ## Required IAM access policies
@@ -54,18 +59,18 @@ Three solutions are offered:
 You need the following permissions to run this module.
 
 - Account Management
-    - **Resource Group** service
-        - `Viewer` platform access
-    - IAM Services
-        - **Workspace for Power Virtual Server** service
-        - **Power Virtual Server** service
-            - `Editor` platform access
-        - **VPC Infrastructure Services** service
-            - `Editor` platform access
-        - **Transit Gateway** service
-            - `Editor` platform access
-        - **Direct Link** service
-            - `Editor` platform access
+  - **Resource Group** service
+    - `Viewer` platform access
+  - IAM Services
+    - **Workspace for Power Virtual Server** service
+    - **Power Virtual Server** service
+      - `Editor` platform access
+    - **VPC Infrastructure Services** service
+      - `Editor` platform access
+    - **Transit Gateway** service
+      - `Editor` platform access
+    - **Direct Link** service
+      - `Editor` platform access
 
 <!-- END MODULE HOOK -->
 

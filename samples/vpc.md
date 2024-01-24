@@ -21,16 +21,17 @@ This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) net
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->
 ## Overview
-* [terraform-ibm-landing-zone-vpc](#terraform-ibm-landing-zone-vpc)
-* [Examples](./examples)
-    * [Basic Example](./examples/basic)
-    * [Default Example](./examples/default)
-    * [Existing VPC and subnets Example](./examples/existing_vpc)
-    * [Hub and Spoke VPC Example](./examples/hub-spoke-delegated-resolver)
-    * [Hub and Spoke VPC with manual DNS resolver Example](./examples/hub-spoke-manual-resolver)
-    * [Landing Zone example](./examples/landing_zone)
-    * [No Prefix Example](./examples/no-prefix)
-* [Contributing](#contributing)
+
+- [terraform-ibm-landing-zone-vpc](#terraform-ibm-landing-zone-vpc)
+- [Examples](./examples)
+  - [Basic Example](./examples/basic)
+  - [Default Example](./examples/default)
+  - [Existing VPC and subnets Example](./examples/existing_vpc)
+  - [Hub and Spoke VPC Example](./examples/hub-spoke-delegated-resolver)
+  - [Hub and Spoke VPC with manual DNS resolver Example](./examples/hub-spoke-manual-resolver)
+  - [Landing Zone example](./examples/landing_zone)
+  - [No Prefix Example](./examples/no-prefix)
+- [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
 <!-- Match this heading to the name of the root level module (the repo name) -->
@@ -41,6 +42,7 @@ This module creates the following IBM Cloud&reg; Virtual Private Cloud (VPC) net
 In addition to this root module, this repository provides two submodules that call the root module with presets and defaults that are aligned with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. See the [landing-zone-submodules](/landing-zone-submodule/) for details.
 
 ### Usage
+
 ```terraform
 module vpc {
   source              = "terraform-ibm-modules/landing-zone-vpc/ibm"
@@ -72,21 +74,21 @@ module.subnets.ibm_is_vpc_address_prefix.subnet_prefix["gcat-multizone-subnet-c"
 ```
 
 ### Required IAM access policies
+
 You need the following permissions to run this module.
 
 - IAM services
-    - **VPC Infrastructure** services
-        - `Editor` platform access
-    - **No service access**
-        - **Resource Group** \<your resource group>
-        - `Viewer` resource group access
+  - **VPC Infrastructure** services
+    - `Editor` platform access
+  - **No service access**
+    - **Resource Group** \<your resource group>
+    - `Viewer` resource group access
 
 To attach access management tags to resources in this module, you need the following permissions.
 
 - IAM Services
-    - **Tagging** service
-        - `Administrator` platform access
-
+  - **Tagging** service
+    - `Administrator` platform access
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ### Requirements
@@ -132,7 +134,7 @@ To attach access management tags to resources in this module, you need the follo
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_access_tags"></a> [access\_tags](#input\_access\_tags) | A list of access tags to apply to the VPC resources created by the module. For more information, see https://cloud.ibm.com/docs/account?topic=account-access-tags-tutorial. | `list(string)` | `[]` | no |
+| <a name="input_access_tags"></a> [access\_tags](#input\_access\_tags) | A list of access tags to apply to the VPC resources created by the module. For more information, see <https://cloud.ibm.com/docs/account?topic=account-access-tags-tutorial>. | `list(string)` | `[]` | no |
 | <a name="input_address_prefixes"></a> [address\_prefixes](#input\_address\_prefixes) | OPTIONAL - IP range that will be defined for the VPC for a certain location. Use only with manual address prefixes | <pre>object({<br>    zone-1 = optional(list(string))<br>    zone-2 = optional(list(string))<br>    zone-3 = optional(list(string))<br>  })</pre> | <pre>{<br>  "zone-1": null,<br>  "zone-2": null,<br>  "zone-3": null<br>}</pre> | no |
 | <a name="input_classic_access"></a> [classic\_access](#input\_classic\_access) | OPTIONAL - Classic Access to the VPC | `bool` | `false` | no |
 | <a name="input_clean_default_sg_acl"></a> [clean\_default\_sg\_acl](#input\_clean\_default\_sg\_acl) | Remove all rules from the default VPC security group and VPC ACL (less permissive) | `bool` | `false` | no |
@@ -153,8 +155,8 @@ To attach access management tags to resources in this module, you need the follo
 | <a name="input_existing_storage_bucket_name"></a> [existing\_storage\_bucket\_name](#input\_existing\_storage\_bucket\_name) | Name of the COS bucket to collect VPC flow logs | `string` | `null` | no |
 | <a name="input_existing_subnet_ids"></a> [existing\_subnet\_ids](#input\_existing\_subnet\_ids) | The IDs of the existing subnets. Required if 'create\_subnets' is false. | `list(string)` | `null` | no |
 | <a name="input_existing_vpc_id"></a> [existing\_vpc\_id](#input\_existing\_vpc\_id) | The ID of the existing vpc. Required if 'create\_vpc' is false. | `string` | `null` | no |
-| <a name="input_hub_vpc_crn"></a> [hub\_vpc\_crn](#input\_hub\_vpc\_crn) | Indicates the crn of the hub VPC for DNS resolution. See https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model. Mutually exclusive with hub\_vpc\_id. | `string` | `null` | no |
-| <a name="input_hub_vpc_id"></a> [hub\_vpc\_id](#input\_hub\_vpc\_id) | Indicates the id of the hub VPC for DNS resolution. See https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model. Mutually exclusive with hub\_vpc\_crn. | `string` | `null` | no |
+| <a name="input_hub_vpc_crn"></a> [hub\_vpc\_crn](#input\_hub\_vpc\_crn) | Indicates the crn of the hub VPC for DNS resolution. See <https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model>. Mutually exclusive with hub\_vpc\_id. | `string` | `null` | no |
+| <a name="input_hub_vpc_id"></a> [hub\_vpc\_id](#input\_hub\_vpc\_id) | Indicates the id of the hub VPC for DNS resolution. See <https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model>. Mutually exclusive with hub\_vpc\_crn. | `string` | `null` | no |
 | <a name="input_is_flow_log_collector_active"></a> [is\_flow\_log\_collector\_active](#input\_is\_flow\_log\_collector\_active) | Indicates whether the collector is active. If false, this collector is created in inactive mode. | `bool` | `true` | no |
 | <a name="input_manual_servers"></a> [manual\_servers](#input\_manual\_servers) | The DNS server addresses to use for the VPC, replacing any existing servers. All the entries must either have a unique zone\_affinity, or not have a zone\_affinity. | <pre>list(object({<br>    address       = string<br>    zone_affinity = optional(string)<br>  }))</pre> | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name to give the newly provisioned VPC. Only used if 'create\_vpc' is true. | `string` | `"dev"` | no |

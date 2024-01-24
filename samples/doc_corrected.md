@@ -44,6 +44,7 @@ content-type: reference-architecture
 {{site.data.keyword.attribute-definition-list}}
 
 # Red Hat OpenShift Container Platform on VPC landing zone
+
 {: #ocp-ra}
 {: toc-content-type="reference-architecture"}
 {: toc-industry="Banking,FinancialSector"}
@@ -54,11 +55,13 @@ content-type: reference-architecture
 Red Hat OpenShift Container Platform on VPC landing zone is a deployable architecture solution based on the IBM Cloud for Financial Services reference architecture. It creates secure and compliant Red Hat OpenShift Container Platform workload clusters on a Virtual Private Cloud (VPC) network.
 
 ## Architecture diagram
+
 {: #ra-ocp-architecture-diagram}
 
 ![Architecture diagram of the OpenShift Container Platform on VPC deployable architecture](roks.drawio.svg "Architecture diagram of Red Hat OpenShift Container Platform on VPC landing zone deployable architecture"){: caption="Figure 1. Single region architecture diagram for Red Hat OpenShift Container Platform on VPC on IBM Cloud" caption-side="bottom"}{: external download="roks.drawio.svg"}
 
 ## Design requirements
+
 {: #ra-ocp-design-requirements}
 
 ![Design requirements for Secure infrastructure on VPC for regulated industries](heat-map-deploy-arch-slz-ocp.svg "Design requirements"){: caption="Figure 2. Scope of the design requirements" caption-side="bottom"}
@@ -70,25 +73,28 @@ business challenge, or target cloud environments.
 -->
 
 ## Components
+
 {: #ra-ocp-components}
 
 ### VPC architecture decisions
+
 {: #ra-ocp-components-arch}
 
 | Requirement | Component | Reasons for choice | Alternative choice |
 |-------------|-----------|--------------------|--------------------|
 | Provide access management and tooling for the workload that is deployed in the workload VPC | Management VPC service | Create a separate VPC service where SSH connectivity from outside is allowed | |
 | Provide compute, storage, and network services to support hosted applications and operations that deliver services to the consumer | Workload VPC service | Create a separate VPC service as an isolated environment, without direct public internet connectivity and without direct SSH access | |
-| * Demonstrate compliance with control requirements of the IBM Cloud Framework for Financial Services  \n * Set up network for all created services  \n * Isolate network for all created services  \n * Ensure all created services are interconnected | Secure landing zone components | Create a minimum set of required components for a secure landing zone | Create a modified set of required components for a secure landing zone in preset |
+| *Demonstrate compliance with control requirements of the IBM Cloud Framework for Financial Services  \n* Set up network for all created services  \n *Isolate network for all created services  \n* Ensure all created services are interconnected | Secure landing zone components | Create a minimum set of required components for a secure landing zone | Create a modified set of required components for a secure landing zone in preset |
 {: caption="Table 1. Architecture decisions" caption-side="bottom"}
 
 ### Network security architecture decisions
+
 {: #ra-ocp-components-arch-net-sec}
 
 | Requirement | Component | Reasons for choice | Alternative choice |
 |-------------|-----------|--------------------|--------------------|
-| * Isolate management VPC and allow only a limited number of network connections  \n * All other connections from or to management VPC are forbidden | ACL and security group rules in management VPC | | More ports might be opened in preset or added manually after deployment |
-| * Isolate workload VPC and allow only a limited number of network connections  \n * All other connections from or to workload VPC are forbidden | ACL and security group rules in workload VPC | Open following ports by default: 53 (DNS service)  \n All ports to other VPCs are open | More ports might be opened in preset or added manually after deployment |
+| *Isolate management VPC and allow only a limited number of network connections  \n* All other connections from or to management VPC are forbidden | ACL and security group rules in management VPC | | More ports might be opened in preset or added manually after deployment |
+| *Isolate workload VPC and allow only a limited number of network connections  \n* All other connections from or to workload VPC are forbidden | ACL and security group rules in workload VPC | Open following ports by default: 53 (DNS service)  \n All ports to other VPCs are open | More ports might be opened in preset or added manually after deployment |
 | Enable floating IP on bastion host to execute deployment | Floating IPs on bastion host in management VPC|Use floating IP on bastion host from IBM Schematics to complete deployment | |
 | Load VPN configuration to simplify VPN setup | VPNs | VPN configuration is the responsibility of the customer | |
 | Collect and store Internet Protocol (IP) traffic information with Activity Tracker and Flow Logs | Activity Tracker | | |
@@ -105,6 +111,7 @@ _Optional section._ Feedback from users implies that architects want only the hi
 -->
 
 ## Next steps
+
 {: #ra-ocp-next-steps}
 
-If you plan to use OpenShift, explore a more detailed view of the VPC reference architecture with OpenShift in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).
+If you plan to use OpenShift, explore a more detailed view of the VPC reference architecture with OpenShift in the [Financial Services Cloud Framework](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).

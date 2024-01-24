@@ -1,6 +1,7 @@
 # Pre-wired CBR configuration for FS Cloud
 
 This module creates default coarse-grained CBR rules in a given account following a "secure by default" approach - that is: deny all flows by default, except known documented communication in the [Financial Services Cloud Reference Architecture](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about):
+
 - Cloud Object Storage (COS) -> Key Management Service (KMS)
 - Block Storage -> Key Management Service (KMS)
 - IBM Cloud Kubernetes Service (IKS) -> Key Management Service (KMS)
@@ -11,7 +12,6 @@ This module creates default coarse-grained CBR rules in a given account followin
 - Virtual Private Cloud workload (eg: Kubernetes worker nodes) -> IBM Cloud Container Registry
 - IBM Cloud Databases (ICD) -> Hyper Protect Crypto Services (HPCS)
 - IBM Cloud Kubernetes Service (IKS) -> IS (VPC Infrastructure Services)
-
 
 **Note on KMS**: the module supports setting up rules for Key Protect, and Hyper Protect Crypto Services. By default the modules set rules for Hyper Protect Crypto Services, but this can be modified to use Key Protect, Hyper Protect, or both Key Protect and Hyper Protect Crypto Services using the input variable `kms_service_targeted_by_prewired_rules`.
 
@@ -24,6 +24,7 @@ The module also pre-create CBR zone for each service in the account as a best pr
 Important: In order to avoid unexpected breakage in the account against which this module is executed, the CBR rule enforcement mode is set to 'report' (or 'disabled' for services not supporting 'report' mode) by default. It is recommended to test out this module first with these default, and then use the `target_service_details` variable to set the enforcement mode to "enabled" gradually by service. The [usage example](../../examples/fscloud/) demonstrates how to set the enforcement mode to 'enabled' for the key protect ("kms") service.
 
 ## Note
+
 The services 'compliance', 'directlink', 'iam-groups', 'containers-kubernetes', 'user-management' does not support restriction per location.
 
 ### Usage
