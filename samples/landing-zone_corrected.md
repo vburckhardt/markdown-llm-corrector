@@ -10,7 +10,6 @@ The landing zone module can be used to create a fully customizable VPC environme
 
 Each of these patterns (except VSI QuickStart) creates the following infrastructure:
 
-The module creates the following components:
 - A resource group for cloud services and for each VPC.
 - Cloud Object Storage instances for flow logs and Activity Tracker.
 - Encryption keys in either a Key Protect or Hyper Protect Crypto Services instance.
@@ -22,13 +21,11 @@ The module creates the following components:
 
 Each pattern creates the following infrastructure in the VPC:
 
-The following patterns are available:
-
-* The VPC pattern deploys a simple IBM Cloud VPC infrastructure without any compute resources like VSIs or Red Hat OpenShift clusters.
-* The QuickStart VSI pattern deploys an edge VPC with one VSI and a jump server VSI in the management VPC.
-* The virtual server (VSI) pattern deploys identical virtual servers across the VSI subnet tier in each VPC.
-* The Red Hat OpenShift Kubernetes (ROKS) pattern deploys identical clusters across the VSI subnet tier in each VPC.
-* The mixed pattern provisions both of these elements.
+- The VPC pattern deploys a basic IBM Cloud VPC infrastructure without any compute resources like VSIs or Red Hat OpenShift clusters.
+- The QuickStart VSI pattern deploys an edge VPC with one VSI and a jump server VSI in the management VPC.
+- The virtual server (VSI) pattern deploys identical virtual servers across the VSI subnet tier in each VPC.
+- The Red Hat OpenShift Kubernetes (ROKS) pattern deploys identical clusters across the VSI subnet tier in each VPC.
+- The mixed pattern provisions both of these elements.
 
 For more information about the default configuration, see [Default Secure Landing Zone configuration](.docs/pattern-defaults.md).
 
@@ -59,24 +56,24 @@ Before deploying the Secure Landing Zone module, complete the following steps.
 
 ### Set up an IBM Cloud Account
 
-1. Make sure that you have an IBM Cloud Pay-As-You-Go or Subscription account.
+1. Make sure that you have an IBM Cloud Pay-As-You-Go or Subscription account:
 
     - If you don't have an IBM Cloud account, [create one](https://cloud.ibm.com/docs/account?topic=account-account-getting-started).
     - If you have a Trial or Lite account, [upgrade your account](https://cloud.ibm.com/docs/account?topic=account-upgrading-account).
 
 ### Configure your IBM Cloud account for Secure Landing Zone
 
-1. Log in to [IBM Cloud](https://cloud.ibm.com) with the IBMid used to set up the account. This IBMid user is the account owner and has full IAM access.
-1. [Complete the company profile](https://cloud.ibm.com/docs/account?topic=account-contact-info) and contact information for the account. This profile is required to stay in compliance with the IBM Cloud Financial Services profile.
+1. Log in to [IBM Cloud](https://cloud.ibm.com) with the IBMid you used to set up the account. This IBMid user is the account owner and has full IAM access.
+1. [Complete the company profile](https://cloud.ibm.com/docs/account?topic=account-contact-info) and contact information for the account. This profile is required to stay in compliance with IBM Cloud Financial Services profile.
 1. [Enable the Financial Services Validated option](https://cloud.ibm.com/docs/account?topic=account-enabling-fs-validated) for your account.
-1. Enable virtual routing and forwarding (VRF) and service endpoints by creating a support case. Follow the instructions in enabling VRF and service endpoints at <https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint&interface=ui#vrf>.
+1. Enable virtual routing and forwarding (VRF) and service endpoints by creating a support case. Follow the instructions in enabling VRF and service endpoints](<https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint&interface=ui#vrf>).
 
 ### Set up account access (Cloud IAM)
 
 1. Create an IBM Cloud [API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key). The user who owns this key must have the Administrator role.
 1. Require users in your account to use [multifactor authentication (MFA)](https://cloud.ibm.com/docs/account?topic=account-account-getting-started#account-gs-mfa).
 1. [Set up access groups](https://cloud.ibm.com/docs/account?topic=account-account-getting-started#account-gs-accessgroups).
-    User access to IBM Cloud resources is regulated through the assignment of access policies to access groups. For IBM Cloud Financial Services validation, all IAM users must not have direct access to any IBM Cloud resources.
+    User access to IBM Cloud resources is regulated through the use of access policies assigned to access groups. For IBM Cloud Financial Services validation, all IAM users must not have direct access to any IBM Cloud resources.
 
     Select **All Identity and Access-enabled services** when assigning access to the group.
 
@@ -86,11 +83,11 @@ For Key Management services, you can use IBM Cloud Hyper Protect Crypto Services
 
 1. Create the service instance:
 
-    1. (Optional) Create a resource group for your instance.
-    1. On the Hyper Protect Crypto Services details page, select a plan.
+    1. (Optional) [Create a resource group](https://cloud.ibm.com/docs/account?topic=account-rgs&interface=ui) for your instance.
+    1. On the Hyper Protect Crypto Services (<https://cloud.ibm.com/catalog/services/hyper-protect-crypto-services>) details page, select a plan.
     1. Complete the required details and click **Create**.
 
-1. Initialize Hyper Protect Crypto Services:
+1. Initialize Hyper Protect Crypto Services.
 
     To initialize the provisioned Hyper Protect Crypto Service instance, follow the steps in [Getting started with IBM Cloud Hyper Protect Crypto Services](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started).
 
@@ -121,7 +118,7 @@ For example, you can add more VPCs by adding the name of the new VPC to the `vpc
 vpcs  = ["management", "workload", "<ADDITIONAL VPC>"]
 ```
 
-You can get more specific after using this method. Running the Terraform outputs a JSON-based file that you can use in `override.json`.
+After running the Terraform, a JSON-based file is generated that can be used in `override.json`.
 
 ### Customizing by using the override.json file
 
@@ -129,7 +126,7 @@ The second approach is to use the `override.json` to create a fully customized e
 
 #### Supported variables
 
-Through the `override.json` file, you can pass any variable or supported optional variable attributes from this root module, which each pattern uses to provision infrastructure. For a complete list of supported variables and attributes, see the [variables.tf](variables.tf) file.
+Through the `override.json`, you can pass any variable or supported optional variable attributes from this root module, which each pattern uses to provision infrastructure. For a complete list of supported variables and attributes, see the [variables.tf](variables.tf) file.
 
 #### Overriding variables
 
@@ -158,7 +155,7 @@ The `override.json` file does not require all elements. For example,
 
 ## (Optional) F5 BIG-IP
 
-The F5 BIG-IP Virtual Edition supports setting up a client-to-site full tunnel VPN to connect to your management or edge VPC or a web application firewall (WAF). With this configuration, you can connect to your workload VPC via the public internet.
+The F5 BIG-IP Virtual Edition supports setting up a client-to-site full tunnel VPN to connect to your management or edge VPC or a web application firewall (WAF). With this configuration, you can connect to your workload VPC over the public internet.
 
 Through Secure Landing Zone, you can choose to provision the F5 BIG-IP, enabling the implementation of a client-to-site VPN or web application firewall (WAF). For further details, refer to [Provisioning a F5 BIG-IP host by using Secure Landing Zone](.docs/f5-big-ip/f5-big-ip.md).
 
@@ -180,7 +177,7 @@ Secure Landing Zone can set up a bastion host that uses Teleport. For more infor
 
 ![vpc-module](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc/blob/main/.docs/vpc-module.png?raw=true)
 
-This template supports creating any number of VPCs in a single region. The VPC network and components are created by the Secure Landing Zone VPC module. The VPC components are described in the main.tf file.
+This template supports creating any number of VPCs in a single region. The VPC network and components are created by the [Secure Landing Zone VPC module](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc). The VPC components are described in the [main.tf](./main.tf) file.
 
 #### vpcs variable
 
@@ -338,7 +335,7 @@ The following example shows the `vpc` variable type.
 
 ### Flow logs
 
-You can add flow log collectors to a VPC by adding the `flow_logs_bucket_name` parameter to the `vpc` object. Each bucket is declared in the `cos` variable that manages Cloud Object Storage. For more information about provisioning Cloud Object Storage with this template, see the [Cloud Object Storage](#cloud-object-storage) section.
+You can add flow log collectors to a VPC by adding the `flow_logs_bucket_name` parameter to the `vpc` object. You declare each bucket in the `cos` variable that manages Cloud Object Storage. For more information about provisioning Cloud Object Storage with this template, see the [Cloud Object Storage](#cloud-object-storage) section.
 
 ### Transit gateway
 
@@ -346,7 +343,7 @@ You can create a transit gateway that connects any number of VPCs in the same ne
 
 ### Security groups
 
-You can provision multiple security groups within any of the provisioned VPCs. You configure security group components in the [security_groups.tf](./security_groups.tf) file. For example:
+You can provision multiple security groups within any of the provisioned VPCs. You configure security group components in the [security_groups.tf](./security_groups.tf) file. For more information, see the [Security groups](https://cloud.ibm.com/docs/containers?topic=containers-security-groups&interface=ui) section of Containers security on IBM Cloud.
 
 #### security_group variable
 
@@ -408,11 +405,11 @@ The following example shows the `security_group` variable type:
 
 ![Virtual servers](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vsi/blob/main/.docs/vsi-lb.png?raw=true)
 
-This module uses the [Cloud Schematics VSI Module](https://github.com/Cloud-Schematics/vsi-module) to support multiple VSI workloads. The VSI submodule covers the following resources:
+This module uses the [Cloud Schematics VSI Module](https://github.com/Cloud-Schematics/vsi-module) to support multiple VSI workloads. The VSI submodule encompasses the following resources:
 
 - Virtual server instances
-- Block storage for the instances
-- VPC load balancers for the instances
+- Block storage for those instances
+- VPC load balancers for those instances
 
 Virtual server components can be found in [virtual_servers.tf](./virtual_servers.tf)
 
@@ -438,7 +435,7 @@ Users can specify a name and, if desired, a public key. If the `public_key` para
 
 :information_source: **Tip:** After the infrastructure is created, changes to the `vsi` variable won't change the VSI image. The restriction is in place so that you don't inadvertently create an outage or lose data.
 
-The following example demonstrates the `vsi` virtual server variable type.
+The following example shows the `vsi` virtual server variable type:
 
 ```terraform
 list(
@@ -577,7 +574,7 @@ list(
 
 ## (Optional) Bastion host
 
-You can provision a bastion host that uses Teleport. The App ID is used to authenticate users to Teleport. Teleport session recordings are stored in a Cloud Object Storage bucket. You configure the bastion host components in the [bastion_host.tf](./bastion_host.tf) file.
+You can provision a bastion host that utilizes Teleport. The App ID is employed to authenticate users to Teleport. Teleport session recordings are stored in a Cloud Object Storage bucket. The components of the bastion host are configured in the [bastion_host.tf](./bastion_host.tf) file.
 
 ### App ID variable
 
@@ -598,7 +595,7 @@ object(
 
 ### Teleport config data variable
 
-The `teleport_config` block creates a single template for all teleport instances. Using a single template keeps the values hidden.
+The `teleport_config` block creates a single template for all teleport instances. By using a single template, the values remain hidden.
 
 ```terraform
 object(
@@ -633,7 +630,7 @@ object(
 
 ### Teleport VSI variable
 
-The following example demonstrates the `teleport_vsi` variable type.
+The following example shows the `teleport_vsi` variable type.
 
 ```terraform
 list(
@@ -737,7 +734,7 @@ list(
 
 ## Virtual private endpoints
 
-Virtual private endpoints can be created for any number of services. The components for virtual private endpoints are defined in the [vpe.tf](vpe.tf) file.
+Virtual private endpoints can be created for any number of services. Virtual private endpoint components are defined in the [vpe.tf](vpe.tf) file.
 
 ## IBM Cloud services
 
@@ -751,13 +748,13 @@ You define Cloud Object Storage components in the [cos.tf](cos.tf) file.
 
 ## VPC placement groups
 
-You can create multiple VPC placement groups in the [vpc_placement_groups.tf](/vpc_placement_groups.tf) file. For more information about VPC placement groups, see the [About placement groups](https://cloud.ibm.com/docs/vpc?topic=vpc-about-placement-groups-for-vpc&interface=ui) section of the IBM Cloud Docs.
+You can create multiple VPC placement groups in the [vpc_placement_groups.tf](/vpc_placement_groups.tf) file. For more information about VPC placement groups, see [About placement groups](https://cloud.ibm.com/docs/vpc?topic=vpc-about-placement-groups-for-vpc&interface=ui) in the IBM Cloud Docs.
 
 ## Usage
 
 ### Template for multiple patterns
 
-You can use the modular design of this module to provision architectures for VSI, clusters, or a combination of both. Include a provider block and a copy of the [variables.tf](variables.tf) file. By referencing this template as a module, you support users who want to add `clusters` or a `vsi` by adding the relevant variable block. No corrections required.
+You can use the modular design of this module to provision architectures for VSI, clusters, or a combination of both. Include a provider block and a copy of the [variables.tf](variables.tf) file. By referencing this template as a module, you support users who want to add `clusters` or a `vsi` by adding the relevant variable block.
 
 #### VSI example
 

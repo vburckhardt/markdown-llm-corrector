@@ -114,4 +114,4 @@ _Optional section._ Feedback from users implies that architects want only the hi
 
 {: #ra-ocp-next-steps}
 
-If you plan to use OpenShift, explore a more detailed view of the VPC reference architecture with OpenShift in the [Financial Services Cloud Framework](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).
+If you plan to use OpenShift, explore a more detailed view of the [VPC reference architecture with OpenShift](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).

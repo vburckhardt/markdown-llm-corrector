@@ -6,7 +6,7 @@ The default values in this profile were scanned by [IBM Code Risk Analyzer (CRA)
 
 > rule-8cbd597c-7471-42bd-9c88-36b2696456e9 - Check whether Cloud Object Storage network access is restricted to a specific IP range
 
-The IBM Cloud Framework for Financial Services requires an inbound network-based allowlist in front of the IBM Cloud Object Storage instance. The `bucket_cbr_rules` and `instance_cbr_rules` variables in the module can help you comply with this requirement. Use these variables to create a narrow context-based restriction rule that is scoped to the IBM Cloud Storage instance. Since CRA does not support checking for context-based restrictions, you can ignore the failing rule after setting the context-based restrictions.
+The IBM Cloud Framework for Financial Services requires an inbound network-based allowlist in front of the IBM Cloud Object Storage instance. You can comply with this requirement using the `bucket_cbr_rules` and `instance_cbr_rules` variables in the module. These variables create a narrow context-based restriction rule that is scoped to the IBM Cloud Storage instance. CRA does not support checking for context-based restrictions, so you can ignore the failing rule after you set the context-based restrictions.
 
 ### Usage
 

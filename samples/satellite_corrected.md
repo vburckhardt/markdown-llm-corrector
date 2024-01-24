@@ -17,12 +17,12 @@ IBM Cloud Satellite enables consistent deployment and operation of applications 
 
 ## Features
 
-- Creates Satellite location.
-- Creates 6 VSIs with RHEL 7.9.
+- Creates a Satellite location.
+- Creates six VSIs with RHEL 7.9.
 - Assigns the three hosts to the location control plane.
 - *Conditionally creates* these items:
-  - Create a Red Hat OpenShift on IBM Cloud cluster and assign the three hosts to the cluster so that you can run Red Hat OpenShift workloads in your location.
-  - Configure a worker pool to an existing Red Hat OpenShift Cluster.
+  - Creates a Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, enabling the running of Red Hat OpenShift workloads in the location.
+  - Configures a worker pool to an existing Red Hat OpenShift Cluster.
 
 <table cellspacing="10" border="0">
   <tr>
@@ -41,26 +41,26 @@ This module is compatible with Terraform 0.13 or later.
 - The `location` submodule creates a location or uses an existing location ID or name.
 - All optional fields are set to `null` in the `variables.tf` file. You can override the values.
 - The `location` submodule downloads the attached host script to the home directory and appends permissions to the script. Use the modified script in the `user_data` attribute of VSI instance.
-- If you want to use a particular version of a module, set the argument `version` to the module version.
+- To use a particular version of a module, set the `version` argument to the module version.
 
 ## Requirements
 
 ### Terraform plug-ins
 
-- [Terraform](https://www.terraform.io/downloads.html) 0.13 or later.
+- [Terraform](https://www.terraform.io/downloads.html) version 0.13 or later.
 - [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
 ## Install
 
 ### Terraform
 
-Be sure you have the correct Terraform version (0.13 or later), you can choose the binary [here](https://releases.hashicorp.com/terraform/)
+Ensure you have the correct Terraform version (0.13 or later), you can choose the binary [here](https://releases.hashicorp.com/terraform/).
 
 - <https://releases.hashicorp.com/terraform/>
 
 ### Terraform provider plug-ins
 
-Be sure you have the compiled plug-ins on $HOME/.terraform.d/plugins/
+Ensure you have the compiled plug-ins on $HOME/.terraform.d/plugins/.
 
 - [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
@@ -167,7 +167,7 @@ To review the plan for the configuration defined (no resources are provisioned),
     terraform plan -var-file=./input.tfvars`
     ```
 
-To execute and start building the configuration defined in the plan (provision resources), run the following command:
+- To execute and start building the configuration defined in the plan (provision resources), run the following command:
 
     ```hcl
     terraform apply -var-file=./input.tfvars`
@@ -179,4 +179,4 @@ To execute and start building the configuration defined in the plan (provision r
     terraform destroy -var-file=./input.tfvars`
     ```
 
-All optional parameters are set to null by default in the example's `variables.tf` file. To configure an optional parameter, override the default value.
+All optional parameters are set to null by default in the example's `variables.tf` file. If you want to configure an optional parameter, override the default value.

@@ -81,7 +81,8 @@ The module also pre-creates CBR zones for each service in the account as a best 
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)"
 Subnets: Create one to three zones,Subnets: Create one to three subnets across availability zones
 "Be sure you have the correct Terraform version (0.13 or later), you can choose the binary here:
-- https://releases.hashicorp.com/terraform/","Be sure you have the correct Terraform version (0.13 or later), you can choose the binary [here](https://releases.hashicorp.com/terraform/)"
+
+- <https://releases.hashicorp.com/terraform/>","Ensure you have the correct Terraform version (0.13 or later), you can choose the binary [here](https://releases.hashicorp.com/terraform/)."
 This module is a collection of submodules that make it easier to provision Satellite resources on IBM Cloud.,This module is made up of a collection of submodules that simplify the provisioning of Satellite resources on IBM Cloud.
 "If you want to use a particular version of a module, set the argument `version` to the module version.","To use a particular version of a module, set the `version` argument to the module version."
 "If you want to configure an optional parameter, override the default value.","To configure an optional parameter, override the default value."
@@ -98,3 +99,5 @@ the [IBM Cloud Framework for Financial Service](https://cloud.ibm.com/docs/frame
 "Do not touch dash (-) separated terms, including in links [terraform-ibm-landing-zone](#terraform-ibm-landing-zone)","Do not touch dash (-) separated terms, including in links [terraform-ibm-landing-zone](#terraform-ibm-landing-zone)"
 Let's try to add title to links such as <https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about>.,Let's try to add title to links such as [IBM Cloud Framework for Financial Service](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about).
 Use this Terraform automation to set up a Satellite location on IBM Cloud®.,This module sets up a Satellite location in IBM Cloud.
+Follow the instructions in enabling VRF and service endpoints](<https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint&interface=ui#vrf>).,Follow the instructions in enabling [VRF and service endpoints](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint&interface=ui#vrf).
+The VPC componnts are described in the [main.tf](./main.tf) file.,The VPC components are described in the [main.tf](./main.tf) file.

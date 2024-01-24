@@ -12,22 +12,22 @@
 
 This repository contains deployable architecture solutions that facilitate the provisioning of VPC landing zones, PowerVS workspaces, and their interconnection. These solutions are available in the IBM Cloud Catalog and can also be deployed independently of the catalog, with the exception of the second solution listed.
 
-Three solutions are offered:
+The following three solutions are offered:
 
 1. [PowerVS full-stack variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/full-stack)
-    - Creates three VPCs with RHEL or SLES instances, Power Virtual Server workspace, interconnects them, and configures os network management services (SQUID proxy, NTP, NFS, and DNS services) using ansible galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
+    - Creates three VPCs with RHEL or SLES instances, Power Virtual Server workspace, interconnects them, and configures OS network management services (SQUID proxy, NTP, NFS, and DNS services) using Ansible Galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
 2. [PowerVS extension variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/extension)
-    - Extends the full-stack solution by creating a new Power Virtual Server workspace in different zone and interconnects with the previous solution.
-    - This solution is typically used for **High Availability scenarios** where a single management VPCs can be used to reach both PowerVS workspaces.
+    - Extends the full-stack solution by creating a new Power Virtual Server workspace in a different zone and interconnects with the previous solution.
+    - This solution is typically used for **High Availability scenarios** where a single management VPC can be used to reach both PowerVS workspaces.
 3. [PowerVS quickstart variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/quickstart)
-    - Creates one VPC and a Power Virtual Server workspace, interconnects them, and configures operating system network management services (SQUID proxy, NTP, NFS, and DNS services) using Ansible Galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
-    - Additionally creates a Power Virtual Server instance of a selected t-shirt size.
+    - Creates a VPC and a Power Virtual Server workspace, interconnects them, and configures operating system network management services (SQUID proxy, NTP, NFS, and DNS services) using Ansible Galaxy collection roles [ibm.power_linux_sap collection](https://galaxy.ansible.com/ui/repo/published/ibm/power_linux_sap/).
+    - Additionally creates a Power Virtual Server Instance of a selected t-shirt size.
     - This solution is typically utilized for **PoCs, demos, and quick onboarding** to PowerVS Infrastructure.
 4. [PowerVS import-workspace variation](https://github.com/terraform-ibm-modules/terraform-ibm-powervs-infrastructure/tree/main/solutions/import-workspace)
     - Takes information of an existing infrastructure and creates a schematics workspace.
     - The schematics workspace's id and the outputs from it can be used to install the terraform solution 'Power Virtual Server for SAP HANA' on top of a pre-existing PowerVS infrastructure.
     - It creates the ACL and security group rules necessary for management services(NTP. NFS, DNS and proxy server) and schematics engine access.
-    - This solution is typically employed for converting an existing Power Virtual Server landscape into a Schematics workspace.
+    This solution is commonly utilized for transforming an existing Power Virtual Server landscape into a Schematics workspace.
 
 ## Reference architectures
 
