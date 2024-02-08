@@ -9,6 +9,9 @@
 This module creates the following IBM Cloud Virtual Private Cloud (VPC) network components:
 
 - VPC: Creates a VPC in a resource group and supports classic access. The VPC and components are specified in the [main.tf](main.tf) file.
+- Public gateways: Optionally create public gateways in the VPC in each of the three zones of the VPC's region.
+- Subnets: Create one to three subnets in the [subnet.tf](subnet.tf) file.
+- Network ACLs: Create network ACLs with multiple rules. By default, VPC network ACLs can have no more than 25 rules.
 - VPN gateways: Create VPN gateways on your subnets by using the `vpn_gateways` variable. For more information about VPN gateways on VPC, see [About site-to-site VPN gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-using-vpn) in the IBM Cloud documentation.
 - VPN gateway connections: Add connections to a VPN gateway.
 - Hub and spoke DNS-sharing model: Optionally create a hub or spoke VPC, with associated custom resolver and DNS resolution binding. See [About DNS sharing for VPE gateways](https://cloud.ibm.com/docs/vpc?topic=vpc-hub-spoke-model) in the IBM Cloud documentation for details.
@@ -36,7 +39,7 @@ This module creates the following IBM Cloud Virtual Private Cloud (VPC) network 
 
 ### Presets
 
-In addition to this root module, this repository provides two submodules that call the root module with presets and defaults that align with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. See the [landing-zone-submodules](/landing-zone-submodule/) for details.
+In addition to this root module, this repository includes two submodules that call the root module with presets and defaults that align with the general [Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-about) management and workload VPC topologies. Refer to the [landing-zone-submodules](/landing-zone-submodule/) for more information.
 
 ### Usage
 
@@ -59,7 +62,7 @@ module vpc {
 
 ### Subnets
 
- You can create up to three zones in the [subnet.tf](subnet.tf) file. The zones are defined as lists in the file and then converted to objects before resource provisioning. This conversion ensures that adding or removing subnets affects only the relevant subnets, as shown in the following example.
+ You can create up to three zones in the [subnet.tf](subnet.tf) file. The zones are defined as lists in the file and then converted to objects before resource provisioning. This conversion ensures that adding or removing subnets affects only the relevant subnets, as demonstrated in the following example.
 
 ```terraform
 module.subnets.ibm_is_subnet.subnet["gcat-multizone-subnet-a"]

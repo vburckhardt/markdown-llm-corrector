@@ -1,6 +1,6 @@
 # IBM Cloud Satellite module
 
-This module provisions an IBM Cloud Satellite location, creates six VSIs, assigns three hosts to the control plane, provisions a ROKS Satellite cluster, assigns three hosts to the cluster, and configures a cluster worker pool to an existing ROKS Satellite cluster using Terraform automation.
+Use this Terraform automation to establish a Satellite location on IBM Cloud®. The module provisions an IBM Cloud Satellite location, creates six VSIs, assigns three hosts to the control plane, provisions a ROKS Satellite cluster, assigns three hosts to the cluster, and configures a cluster worker pool to an existing ROKS Satellite cluster.
 
 This module is a collection of submodules that make it easier to provision Satellite resources on IBM Cloud.
 
@@ -11,7 +11,7 @@ This module is a collection of submodules that make it easier to provision Satel
 
 ## Overview
 
-IBM Cloud Satellite enables consistent deployment and operation of applications across all on-premises, edge computing, and public cloud environments from various cloud providers. It harmonizes a fundamental set of Kubernetes, data, AI, and security services to be centrally administered as a service by IBM Cloud, offering comprehensive oversight across all environments via a unified interface. This leads to enhanced developer productivity and accelerated development pace.
+IBM Cloud Satellite enables consistent deployment and operation of applications across all on-premises, edge computing, and public cloud environments from various cloud providers. It harmonizes a fundamental set of Kubernetes, data, AI, and security services to be centrally administered as a service by IBM Cloud, offering comprehensive oversight across all environments via a unified interface. The result is enhanced developer productivity and accelerated development pace.
 
 <https://cloud.ibm.com/docs/satellite?topic=satellite-getting-started>
 
@@ -21,8 +21,8 @@ IBM Cloud Satellite enables consistent deployment and operation of applications 
 - Creates six VSIs with RHEL 7.9.
 - Assigns the three hosts to the location control plane.
 - *Conditionally creates* these items:
-  - Creates a Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, enabling the running of Red Hat OpenShift workloads in the location.
-  - Configures a worker pool to an existing Red Hat OpenShift Cluster.
+  - Creates a Red Hat OpenShift on IBM Cloud cluster and assigns the three hosts to the cluster, enabling the deployment of Red Hat OpenShift workloads in the location.
+  - Configures a worker pool for an existing Red Hat OpenShift Cluster.
 
 <table cellspacing="10" border="0">
   <tr>
@@ -34,7 +34,7 @@ IBM Cloud Satellite enables consistent deployment and operation of applications 
 
 ## Compatibility
 
-This module is compatible with Terraform 0.13 or later.
+This module is designed for use with Terraform version 0.13 or later.
 
 ## Note
 
@@ -54,13 +54,13 @@ This module is compatible with Terraform 0.13 or later.
 
 ### Terraform
 
-Ensure you have the correct Terraform version (0.13 or later), you can choose the binary [here](https://releases.hashicorp.com/terraform/).
+Ensure you have the correct Terraform version (0.13 or later). You can choose the binary from the [Terraform versions page](https://releases.hashicorp.com/terraform/).
 
 - <https://releases.hashicorp.com/terraform/>
 
 ### Terraform provider plug-ins
 
-Ensure you have the compiled plug-ins on $HOME/.terraform.d/plugins/.
+Ensure you have the compiled plug-ins in the `$HOME/.terraform.d/plugins/` directory.
 
 - [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
@@ -147,13 +147,13 @@ module "satellite-ibm" {
 
 ## Pre-commit Hooks
 
-- Run the following command to execute the pre-commit hooks defined in the `.pre-commit-config.yaml` file:
+Run the following command to execute the pre-commit hooks defined in `.pre-commit-config.yaml`:
 
     ```bash
     pre-commit run -a`
     ```
 
-- You can install the pre-commit tool by running the following command:
+You can install the pre-commit tool by running the following command:
 
     ```bash
     pip install pre-commit`
@@ -161,13 +161,13 @@ module "satellite-ibm" {
 
 ## How to input variable values through a file
 
-To review the plan for the configuration defined (no resources are provisioned), run the following command:
+- To review the plan for the configuration defined (no resources are provisioned), run the following command:
 
     ```hcl
     terraform plan -var-file=./input.tfvars`
     ```
 
-- To execute and start building the configuration defined in the plan (provision resources), run the following command:
+- Run the following command to execute and start building the configuration defined in the plan (provision resources):
 
     ```hcl
     terraform apply -var-file=./input.tfvars`

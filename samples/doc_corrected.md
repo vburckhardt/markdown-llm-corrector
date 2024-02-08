@@ -99,7 +99,7 @@ business challenge, or target cloud environments.
 | Load VPN configuration to simplify VPN setup | VPNs | VPN configuration is the responsibility of the customer | |
 | Collect and store Internet Protocol (IP) traffic information with Activity Tracker and Flow Logs | Activity Tracker | | |
 | Securely connect to multiple networks with a site-to-site virtual private network | | | |
-{: caption="Table 2. Network Security Architecture Decisions" caption-side="bottom"}
+{: caption="Table 2. Network security architecture decisions" caption-side="bottom"}
 
 <!--
 ## Compliance
@@ -114,4 +114,4 @@ _Optional section._ Feedback from users implies that architects want only the hi
 
 {: #ra-ocp-next-steps}
 
-If you plan to use OpenShift, explore a more detailed view of the [VPC reference architecture with OpenShift](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).
+If you plan to use {{site.data.keyword.openshiftlong_notm}}, explore a more detailed view of the [VPC reference architecture with {{site.data.keyword.openshiftshort}}](/docs/framework-financial-services?topic=framework-financial-services-vpc-architecture-detailed-openshift).

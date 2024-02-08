@@ -1,12 +1,12 @@
 # Profile for IBM Cloud Framework for Financial Services
 
-This code is a version of the [parent root module](../../) that includes a default configuration compliant with the relevant controls from the [IBM Cloud Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about). Refer to the [Example for IBM Cloud Framework for Financial Services](/examples/fscloud/) for logic that uses this module. The profile assumes you are deploying into an account that adheres to the framework.
+This code is a version of the [parent root module](../../) that includes a default configuration that complies with the relevant controls from the [IBM Cloud Framework for Financial Services](https://cloud.ibm.com/docs/framework-financial-services?topic=framework-financial-services-about). See the [Example for IBM Cloud Framework for Financial Services](/examples/fscloud/) for logic that uses this module. The profile assumes you are deploying into an account that is in compliance with the framework. No corrections required.
 
-The default values in this profile were scanned by [IBM Code Risk Analyzer (CRA)](https://cloud.ibm.com/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-command) for compliance with the IBM Cloud Framework for Financial Services profile specified by the IBM Security and Compliance Center. The scan passed for all applicable rules, with the following exceptions:
+The default values in this profile were scanned by [IBM Code Risk Analyzer (CRA)](https://cloud.ibm.com/docs/code-risk-analyzer-cli-plugin?topic=code-risk-analyzer-cli-plugin-cra-cli-plugin#terraform-command) for compliance with the IBM Cloud Framework for Financial Services profile specified by the IBM Security and Compliance Center. The scan passed for all applicable rules with the following exceptions:
 
-> rule-8cbd597c-7471-42bd-9c88-36b2696456e9 - Check whether Cloud Object Storage network access is restricted to a specific IP range
+rule-8cbd597c-7471-42bd-9c88-36b2696456e9 - Check whether Cloud Object Storage network access is restricted to a specific IP range
 
-The IBM Cloud Framework for Financial Services requires an inbound network-based allowlist in front of the IBM Cloud Object Storage instance. You can comply with this requirement using the `bucket_cbr_rules` and `instance_cbr_rules` variables in the module. These variables create a narrow context-based restriction rule that is scoped to the IBM Cloud Storage instance. CRA does not support checking for context-based restrictions, so you can ignore the failing rule after you set the context-based restrictions.
+The IBM Cloud Framework for Financial Services requires an inbound network-based allowlist in front of the IBM Cloud Object Storage instance. The `bucket_cbr_rules` and `instance_cbr_rules` variables in the module can help you comply with this requirement. Use these variables to create a narrow context-based restriction rule that is scoped to the IBM Cloud Storage instance. Since CRA does not support checking for context-based restrictions, you can ignore the failing rule after you set the context-based restrictions.
 
 ### Usage
 
