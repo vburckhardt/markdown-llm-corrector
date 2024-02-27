@@ -10,7 +10,7 @@ from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import MarkdownTextSplitter
 from langchain.prompts.few_shot import FewShotPromptTemplate
 from langchain_community.document_loaders import DirectoryLoader
-from langchain.text_splitter import MarkdownHeaderTextSplitter
+from text_splitter import MarkdownHeaderTextSplitter
 
 
 class MarkdownEditor:
@@ -123,6 +123,7 @@ class MarkdownEditor:
 
     def __process_chunk(self, chunk):
         original = chunk.page_content
+        # print(original)
         example_prompt = PromptTemplate(
             input_variables=["text", "correction"],
             template=textwrap.dedent(

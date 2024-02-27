@@ -3,5 +3,5 @@ langchain_community
 ibm-watson-machine-learning>=1.0.339
 wheel
 sentence_transformers
-faiss-gpu
+faiss-cpu
 clevercsv
