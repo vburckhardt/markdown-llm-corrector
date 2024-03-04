@@ -348,7 +348,7 @@ You can provision multiple security groups within any of the provisioned VPCs. Y
 
 #### security_group variable
 
-The `security_group` variable supports creating security groups dynamically. The list of groups is converted to a map to ensure that changes, updates, and deletions don't affect other resources. This allows for more flexibility and control over the security groups.
+The `security_group` variable supports creating security groups dynamically. The list of groups is converted to a map to ensure that changes, updates, and deletions don't affect other resources. This allows for more flexibility and control over security group management.
 
 The following example shows the `security_group` variable.
 
@@ -420,7 +420,7 @@ You can use this template to create or return multiple VPC SSH keys by using the
 
 #### ssh_keys variable
 
-Users can add a name and optionally a public key. If `public_key` is not provided, the SSH key is retrieved using a `data` block.
+Users can add a name and optionally a public key. If `public_key` is not provided, the SSH key is retrieved by using a `data` block.
 
 ```terraform
   type = list(
